@@ -10,11 +10,11 @@
   </a>
   <div class="top-menu-container" fxShow="true" fxHide.lt-md="true">
     <a class="go-to-settings" mat-button [routerLink]="'/' + routes.DONATION.BASE">
-      <mat-icon aria-hidden="false" fontIcon="tasks"></mat-icon>
+      <mat-icon aria-hidden="false" fontIcon="volunteer_activism"></mat-icon>
       {{'DONATION.TITLE' | translate}}
     </a>
     <a class="go-to-settings" mat-button [routerLink]="'/' + routes.ADMIN.BASE">
-      <mat-icon aria-hidden="false" fontIcon="settings"></mat-icon>
+      <mat-icon aria-hidden="false" fontIcon="list"></mat-icon>
       {{'ADMIN.TITLE' | translate}}
     </a>
     <div class="custom-flex-spacer"></div>
@@ -26,11 +26,11 @@
   <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm>
     <div class="sidenav-menu" fxLayout="column">
       <a class="go-to-settings" mat-button [routerLink]="'/' + routes.DONATION.BASE">
-        <mat-icon aria-hidden="false" fontIcon="donation"></mat-icon>
+        <mat-icon aria-hidden="false" fontIcon="volunteer_activism"></mat-icon>
         {{'DONATION.TITLE' | translate}}
       </a>
       <a class="go-to-settings" mat-button [routerLink]="'/' + routes.ADMIN.BASE">
-        <mat-icon aria-hidden="false" fontIcon="settings"></mat-icon>
+        <mat-icon aria-hidden="false" fontIcon="list"></mat-icon>
         {{'ADMIN.TITLE' | translate}}
       </a>
       <div class="custom-spacer"></div>

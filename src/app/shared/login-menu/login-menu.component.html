@@ -12,7 +12,7 @@
 
 <a *ngIf="(isAuthenticated | async) !== true" class="go-to-settings" mat-button
    [routerLink]="'/' + routes.MENU.REGISTER">
-  <mat-icon aria-hidden="false" fontIcon="register"></mat-icon>
+  <mat-icon aria-hidden="false" fontIcon="how_to_reg"></mat-icon>
   {{ 'AUTH.REGISTER.TITLE' | translate}}
 </a>
 <a *ngIf="(isAuthenticated | async) !== true" class="go-to-settings" mat-button [routerLink]="'/' + routes.MENU.LOGIN">
