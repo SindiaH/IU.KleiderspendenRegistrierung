@@ -57,14 +57,14 @@ export class LoginComponent implements OnInit {
     switch (type) {
       case 'email':
         if (this.email.hasError('required')) {
-          return 'PAGES.LOGIN.NOT_EMPTY';
+          return 'ERROR.NOT_EMPTY';
         }
-        return this.email.hasError('email') ? 'PAGES.LOGIN.INVALID_EMAIL' : '';
+        return this.email.hasError('email') ? 'ERROR.INVALID_EMAIL' : '';
       case 'password':
         if (this.password.hasError('required')) {
-          return 'PAGES.LOGIN.NOT_EMPTY';
+          return 'ERROR.NOT_EMPTY';
         }
-        return this.password.hasError('password') ? 'PAGES.LOGIN.INVALID_PASSWORD' : '';
+        return this.password.hasError('password') ? 'ERROR.INVALID_PASSWORD' : '';
       default:
         return '';
     }

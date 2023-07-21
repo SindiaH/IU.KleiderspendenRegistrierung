@@ -9,8 +9,7 @@ export const locale: LanguageInfo = {
   data: {
     'WELCOME': 'Willkommen',
     'TITLE': 'Kleiderspende',
-    'IMPRESSUM': 'Impressum',
-    'DATA_PROTECTION': 'Datenschutz',
+    'LOADING': 'Laden...',
     'FOOTER': {
       'INFO': '©Helfende Hand Verein, created by Sindia Höller 2023'
     },
@@ -20,9 +19,15 @@ export const locale: LanguageInfo = {
     'ADMIN': {
       'TITLE': 'Spendenübersicht',
     },
+    'ERROR': {
+      'NOT_EMPTY': 'Dieses Feld darf nicht leer sein.',
+      'INVALID_EMAIL': 'Bitte geben Sie eine gültige Email-Adresse ein.',
+      'INVALID_PASSWORD': 'Bitte geben Sie ein gültiges Passwort ein.',
+      'PW_NO_MATCH': 'Passwörter stimmen nicht überein.',
+    },
     'AUTH': {
       'LOGIN': {
-        'TITLE': 'HEADER',
+        'TITLE': 'Login',
         'DESCRIPTION': 'Sie haben bereits ein Konto? Dann loggen Sie sich hier ein.',
         "GO_TO_REG_DESCRIPTION": "Du hast noch keinen Account?",
         'FORGOT_PASSWORD': 'Passwort vergessen?',
@@ -32,9 +37,12 @@ export const locale: LanguageInfo = {
       },
       'REGISTER': {
         'TITLE': 'Registrieren',
+        'DESCRIPTION': 'Sie haben noch kein Konto? Dann registrieren Sie sich hier.',
         'EMAIL': 'Email',
         'PASSWORD': 'Passwort',
+        'PASSWORD_CONFIRM': 'Passwort bestätigen',
         'BUTTON': 'Registrieren',
+        'GO_TO_LOGIN_DESCRIPTION': 'Sie haben bereits ein Konto?',
       },
       'LOGOUT': {
         'TITLE': 'Logout',
@@ -43,6 +51,8 @@ export const locale: LanguageInfo = {
         'TITLE': 'Profil',
       },
     },
+    'IMPRESSUM': 'Impressum',
+    'DATA_PROTECTION': 'Datenschutz',
     'DATA_PROTECTION_TEXT': {
       'TITLE': 'Datenschutzerklärung',
       'TITLE_2': '1. Allgemeine Hinweise',

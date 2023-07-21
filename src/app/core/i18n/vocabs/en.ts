@@ -8,7 +8,7 @@ export const locale: LanguageInfo = {
   data: {
     'WELCOME': 'Welcome',
     'TITLE': 'Clothing donation',
-
+    'LOADING': 'Loading...',
     'FOOTER': {
       'INFO': '©Helfende Hand Verein, created by Sindia Höller 2023'
     },
@@ -17,6 +17,12 @@ export const locale: LanguageInfo = {
     },
     'ADMIN': {
       'TITLE': 'Donation overview',
+    },
+    'ERROR': {
+      'NOT_EMPTY': 'This field cannot be empty.',
+      'INVALID_EMAIL': 'Please enter a valid email address',
+      'INVALID_PASSWORD': 'Please enter a valid password',
+      'PW_NO_MATCH': 'Passwords do not match',
     },
     'AUTH': {
       'LOGIN': {
@@ -30,9 +36,12 @@ export const locale: LanguageInfo = {
       },
       'REGISTER': {
         'TITLE': 'Register',
+        'DESCRIPTION': 'You don\'t have an account yet? Then register here.',
         'EMAIL': 'Email',
         'PASSWORD': 'Password',
+        'PASSWORD_CONFIRM': 'Confirm password',
         'BUTTON': 'Register',
+        'GO_TO_LOGIN_DESCRIPTION': 'You already have an account?',
       },
       'LOGOUT': {
         'TITLE': 'Logout',
