@@ -4,7 +4,7 @@ export const locale: LanguageInfo = {
   lang: 'en',
   name: 'English',
   isRTL: false,
-  flag: './assets/flags/en.svg',
+  flag: '🇺🇸',
   data: {
     'WELCOME': 'Welcome',
   }

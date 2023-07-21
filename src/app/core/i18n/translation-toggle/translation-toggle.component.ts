@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {LanguageInfo,  TranslationService} from '../translation.service';
+import { TranslationService} from '../translation.service';
 import {FormControl} from '@angular/forms';
 import {MatSelectChange} from '@angular/material/select';
 
@@ -14,7 +14,6 @@ export class TranslationToggleComponent {
   constructor(public translationService: TranslationService) {
     this.translationService.selectedLanguage.subscribe((language) => {
       this.selectedLanguage.setValue(language);
-      console.log('selectedLanguage', this.selectedLanguage);
     })
   }
 

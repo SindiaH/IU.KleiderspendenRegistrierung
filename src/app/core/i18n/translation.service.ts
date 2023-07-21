@@ -68,10 +68,28 @@ export class TranslationService {
    * Returns selected language
    */
   getSelectedLanguage(): string {
+    // return current context language, if set
     if(this.selectedLanguage.value){
       return this.selectedLanguage.value;
     }
+    // return previously selected language from cookie, if set
     let lang = this.cookieService.get(LOCALIZATION_LOCAL_STORAGE_KEY);
+    if(lang) {
+      return lang;
+    }
+
+    // return language from browser, if possible
+    let windowLang = window.navigator.language;
+    if(windowLang) {
+      let windowLangMatch = this.languages.value.find((l) => {
+        return windowLang.includes(l.lang);
+      });
+      if(windowLangMatch) {
+        return windowLangMatch.lang;
+      }
+    }
+
+    // return default language
     if(!lang) {
       lang = this.translate.getDefaultLang();
       this.setLanguage(lang);
