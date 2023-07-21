@@ -12,5 +12,12 @@ export const RoutingConstants = {
     LOGOUT: 'logout',
     LOGIN: 'login',
     REGISTER: 'register',
+  },
+  AUTH: {
+    BASE: 'auth',
+    ACCOUNT: 'account',
+    LOGIN: 'login',
+    REGISTER: 'register',
+    PASSWORD_RESET: 'password-reset',
   }
 }

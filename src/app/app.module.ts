@@ -10,6 +10,10 @@ import {BaseModule} from './base/base.module';
 import {AdminModule} from './admin/admin.module';
 import {DonationModule} from './donation/donation.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AuthModule} from './auth/auth.module';
+import {DatabaseModule} from './database/database.module';
+import {ToastrModule} from 'ngx-toastr';
+import {CookieModule} from 'ngx-cookie';
 
 @NgModule({
   declarations: [
@@ -20,11 +24,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot(),
+    ToastrModule.forRoot(),
+    CookieModule.withOptions(),
     SharedModule,
     BaseModule,
     AdminModule,
     DonationModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AuthModule,
+    DatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

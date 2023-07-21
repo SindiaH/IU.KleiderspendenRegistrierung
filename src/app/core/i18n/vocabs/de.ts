@@ -22,7 +22,10 @@ export const locale: LanguageInfo = {
     },
     'AUTH': {
       'LOGIN': {
-        'TITLE': 'Login',
+        'TITLE': 'HEADER',
+        'DESCRIPTION': 'Sie haben bereits ein Konto? Dann loggen Sie sich hier ein.',
+        "GO_TO_REG_DESCRIPTION": "Du hast noch keinen Account?",
+        'FORGOT_PASSWORD': 'Passwort vergessen?',
         'EMAIL': 'Email',
         'PASSWORD': 'Passwort',
         'BUTTON': 'Login',

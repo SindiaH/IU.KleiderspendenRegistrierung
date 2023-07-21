@@ -25,6 +25,10 @@ const routes: Routes = [
   {
     path: RoutingConstants.ADMIN.BASE,
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: RoutingConstants.AUTH.BASE,
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   }
 ];
 

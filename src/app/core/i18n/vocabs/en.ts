@@ -21,6 +21,9 @@ export const locale: LanguageInfo = {
     'AUTH': {
       'LOGIN': {
         'TITLE': 'Login',
+        'DESCRIPTION': 'You already have an account? Then log in here.',
+        'GO_TO_REG_DESCRIPTION': 'You don\'t have an account yet?',
+        'FORGOT_PASSWORD': 'Forgot password?',
         'EMAIL': 'Email',
         'PASSWORD': 'Password',
         'BUTTON': 'Login',

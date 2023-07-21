@@ -1,0 +1,48 @@
+//@import 'src/styles/colors';
+.header {
+  color: #3f51b5;
+  text-align: center;
+  font-weight: 600;
+  font-size: 4em;
+  line-height: 1em;
+}
+.pw-reset-link {
+  cursor: pointer;
+  //text-decoration: none;
+  margin-left: auto;
+  margin-bottom: 0.4em;
+  color: #3f51b5;
+  padding: 8px 0;
+}
+.description {
+  text-align: center;
+  margin-bottom: 5em;
+}
+.login-form {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
+  > div {
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.dont-have-an-account {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  p {
+    margin: 0;
+  }
+  .go-to-register {
+    padding-left: 1em;
+    color: #3f51b5;
+    text-decoration: none;
+  }
+}

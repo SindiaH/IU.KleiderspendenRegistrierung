@@ -17,6 +17,7 @@ import {CommonModule} from '@angular/common';
 import {FooterComponent} from './footer/footer.component';
 import { ImpressumComponent } from './footer/impressum/impressum.component';
 import { DataProtectionComponent } from './footer/data-protection/data-protection.component';
+import {SubscriptionDestroyComponent} from '../core/subscription-destroy.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DataProtectionComponent } from './footer/data-protection/data-protectio
     LoginMenuComponent,
     FooterComponent,
     ImpressumComponent,
-    DataProtectionComponent
+    DataProtectionComponent,
+    SubscriptionDestroyComponent
   ],
   imports: [
     FormsModule,

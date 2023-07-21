@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../shared/shared.module';
-import { DonationOverviewComponent } from './donation-overview/donation-overview.component';
+import {DonationOverviewComponent} from './donation-overview/donation-overview.component';
 import {AdminRoutingModule} from './admin-routing.module';
 
 @NgModule({
@@ -13,4 +13,4 @@ import {AdminRoutingModule} from './admin-routing.module';
   ],
   exports: []
 })
-export class AdminModule {}
+export class AdminModule { }

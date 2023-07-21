@@ -1,21 +1,21 @@
 <div class="login-menu">
 
 
-<a *ngIf="isAuthenticated | async" class="go-to-settings" mat-button [routerLink]="'/' + routes.MENU.PROFILE">
+<a *ngIf="isAuthenticated | async" class="go-to-settings" mat-button [routerLink]="'/' + routes.AUTH.BASE + '/' + routes.AUTH.ACCOUNT">
   <mat-icon aria-hidden="false" fontIcon="profile"></mat-icon>
   {{ 'AUTH.PROFILE.TITLE' | translate}}
 </a>
-<a *ngIf="isAuthenticated | async" class="go-to-settings" mat-button [routerLink]="'/' + routes.MENU.LOGOUT">
+<a *ngIf="isAuthenticated | async" class="go-to-settings" mat-button >
   <mat-icon aria-hidden="false" fontIcon="logout"></mat-icon>
   {{ 'AUTH.LOGOUT.TITLE' | translate}}
 </a>
 
 <a *ngIf="(isAuthenticated | async) !== true" class="go-to-settings" mat-button
-   [routerLink]="'/' + routes.MENU.REGISTER">
+   [routerLink]="'/' + routes.AUTH.BASE + '/' + routes.AUTH.REGISTER">
   <mat-icon aria-hidden="false" fontIcon="how_to_reg"></mat-icon>
   {{ 'AUTH.REGISTER.TITLE' | translate}}
 </a>
-<a *ngIf="(isAuthenticated | async) !== true" class="go-to-settings" mat-button [routerLink]="'/' + routes.MENU.LOGIN">
+<a *ngIf="(isAuthenticated | async) !== true" class="go-to-settings" mat-button [routerLink]="'/' + routes.AUTH.BASE + '/' + routes.AUTH.LOGIN">
   <mat-icon aria-hidden="false" fontIcon="login"></mat-icon>
   {{ 'AUTH.LOGIN.TITLE' | translate}}
 </a>
