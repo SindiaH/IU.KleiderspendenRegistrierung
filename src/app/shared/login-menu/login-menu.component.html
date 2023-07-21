@@ -1,0 +1,22 @@
+<div class="login-menu">
+
+
+<a *ngIf="isAuthenticated | async" class="go-to-settings" mat-button [routerLink]="'/' + routes.MENU.PROFILE">
+  <mat-icon aria-hidden="false" fontIcon="profile"></mat-icon>
+  {{ 'AUTH.PROFILE.TITLE' | translate}}
+</a>
+<a *ngIf="isAuthenticated | async" class="go-to-settings" mat-button [routerLink]="'/' + routes.MENU.LOGOUT">
+  <mat-icon aria-hidden="false" fontIcon="logout"></mat-icon>
+  {{ 'AUTH.LOGOUT.TITLE' | translate}}
+</a>
+
+<a *ngIf="(isAuthenticated | async) !== true" class="go-to-settings" mat-button
+   [routerLink]="'/' + routes.MENU.REGISTER">
+  <mat-icon aria-hidden="false" fontIcon="register"></mat-icon>
+  {{ 'AUTH.REGISTER.TITLE' | translate}}
+</a>
+<a *ngIf="(isAuthenticated | async) !== true" class="go-to-settings" mat-button [routerLink]="'/' + routes.MENU.LOGIN">
+  <mat-icon aria-hidden="false" fontIcon="login"></mat-icon>
+  {{ 'AUTH.LOGIN.TITLE' | translate}}
+</a>
+</div>

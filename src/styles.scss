@@ -9,3 +9,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     display: none !important;
   }
 }
+app-translation-toggle {
+  display: flex;
+  justify-content: center;
+}
+.custom-spacer {
+  flex: 1 1 auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.custom-flex-spacer {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+}

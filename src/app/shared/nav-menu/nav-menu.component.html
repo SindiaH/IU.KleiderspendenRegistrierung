@@ -1,0 +1,46 @@
+<mat-toolbar class="shared-header">
+  <div fxShow="true" fxHide.gt-sm="true">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <a mat-button aria-label="Home" [routerLink]="'/'">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+    <span>{{'TITLE' | translate}}</span>
+  </a>
+  <div class="top-menu-container" fxShow="true" fxHide.lt-md="true">
+    <a class="go-to-settings" mat-button [routerLink]="'/' + routes.DONATION.BASE">
+      <mat-icon aria-hidden="false" fontIcon="tasks"></mat-icon>
+      {{'DONATION.TITLE' | translate}}
+    </a>
+    <a class="go-to-settings" mat-button [routerLink]="'/' + routes.ADMIN.BASE">
+      <mat-icon aria-hidden="false" fontIcon="settings"></mat-icon>
+      {{'ADMIN.TITLE' | translate}}
+    </a>
+    <div class="custom-flex-spacer"></div>
+    <app-translation-toggle></app-translation-toggle>
+    <app-login-menu></app-login-menu>
+  </div>
+</mat-toolbar>
+<mat-sidenav-container fxFlexFill class="sidenav-container">
+  <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm>
+    <div class="sidenav-menu" fxLayout="column">
+      <a class="go-to-settings" mat-button [routerLink]="'/' + routes.DONATION.BASE">
+        <mat-icon aria-hidden="false" fontIcon="donation"></mat-icon>
+        {{'DONATION.TITLE' | translate}}
+      </a>
+      <a class="go-to-settings" mat-button [routerLink]="'/' + routes.ADMIN.BASE">
+        <mat-icon aria-hidden="false" fontIcon="settings"></mat-icon>
+        {{'ADMIN.TITLE' | translate}}
+      </a>
+      <div class="custom-spacer"></div>
+      <app-translation-toggle></app-translation-toggle>
+      <app-login-menu></app-login-menu>
+
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content class="ng-content"></ng-content>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
