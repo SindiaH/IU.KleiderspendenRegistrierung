@@ -14,12 +14,18 @@ import {LoginMenuComponent} from './login-menu/login-menu.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {CommonModule} from '@angular/common';
+import {FooterComponent} from './footer/footer.component';
+import { ImpressumComponent } from './footer/impressum/impressum.component';
+import { DataProtectionComponent } from './footer/data-protection/data-protection.component';
 
 @NgModule({
   declarations: [
     TranslationToggleComponent,
     NavMenuComponent,
-    LoginMenuComponent
+    LoginMenuComponent,
+    FooterComponent,
+    ImpressumComponent,
+    DataProtectionComponent
   ],
   imports: [
     FormsModule,

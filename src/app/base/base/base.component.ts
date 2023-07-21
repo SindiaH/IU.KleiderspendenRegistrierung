@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {RoutingConstants} from '../../core/constants/routing.constants';
 
 @Component({
   selector: 'app-base',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./base.component.scss']
 })
 export class BaseComponent {
-
+routes = RoutingConstants;
 }

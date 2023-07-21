@@ -5,6 +5,8 @@ export const RoutingConstants = {
   DONATION: {
     BASE: 'donations',
   },
+  IMPRESSUM: 'impressum',
+  DataProtection: 'data-protection',
   MENU: {
     PROFILE: 'profile',
     LOGOUT: 'logout',
