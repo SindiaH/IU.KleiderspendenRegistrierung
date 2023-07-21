@@ -24,5 +24,10 @@
   width: 100%;
 }
 .sidenav-menu {
-  height: calc(100% - 56px);
+  height: 100%;
+  padding-bottom: 16px;
+}
+mat-sidenav-container,  {
+  min-height: calc(100% - 56px) !important;
+  height: calc(100% - 56px) !important;
 }
