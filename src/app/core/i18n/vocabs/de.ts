@@ -15,14 +15,25 @@ export const locale: LanguageInfo = {
       'INFO': '©Helfende Hand Verein, created by Sindia Höller 2023'
     },
     'DONATION': {
-      'TITLE': 'Spende'
+      'TITLE': 'Spende',
+      'SUBMIT': 'Absenden',
+      'PICKUP': 'Abholung',
+      'ONSITE': 'Übergabe an der Geschäftsstelle',
+      'PICKUP_ADDRESS': 'Abholadresse',
+      'DONATION_TYPE': 'Spendenart',
+      'CRISIS_AREA': 'Krisengebiet',
+      'STREET': 'Straße',
+      'NUMBER': 'Straßennummer',
+      'ZIP': 'PLZ',
+      'CITY': 'Stadt',
+      'COUNTRY': 'Land',
     },
     'ADMIN': {
       'TITLE': 'Spendenübersicht',
     },
     'ERROR': {
       'INFO': 'Fehler',
-      'NOT_EMPTY': 'Dieses Feld darf nicht leer sein.',
+      'NOT_EMPTY': 'Pflichtfeld',
       'INVALID_EMAIL': 'Bitte geben Sie eine gültige Email-Adresse ein.',
       'INVALID_PASSWORD': 'Bitte geben Sie ein gültiges Passwort ein.',
       'PW_NO_MATCH': 'Passwörter stimmen nicht überein.',

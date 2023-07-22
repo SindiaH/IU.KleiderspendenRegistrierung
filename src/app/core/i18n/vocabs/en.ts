@@ -14,14 +14,26 @@ export const locale: LanguageInfo = {
       'INFO': '©Helfende Hand Verein, created by Sindia Höller 2023'
     },
     'DONATION': {
-      'TITLE': 'Donation'
+      'TITLE': 'Donation',
+      'SUBMIT': 'Submit',
+      'PICKUP': 'Pickup',
+      'ONSITE': 'Handover at the office',
+      'PICKUP_ADDRESS': 'Pickup address',
+      'DONATION_TYPE': 'Donation type',
+      'CRISIS_AREA': 'Crisis area',
+      'STREET': 'Street',
+      'NUMBER': 'Street nr.',
+      'ZIP': 'ZIP',
+      'CITY': 'City',
+      'COUNTRY': 'Country',
+      'SUCCESSFULLY_SUBMITTED': 'Your donation has been successfully submitted. Thank you for your support!'
     },
     'ADMIN': {
       'TITLE': 'Donation overview',
     },
     'ERROR': {
       'INFO': 'Error',
-      'NOT_EMPTY': 'This field cannot be empty.',
+      'NOT_EMPTY': 'Required field',
       'INVALID_EMAIL': 'Please enter a valid email address',
       'INVALID_PASSWORD': 'Please enter a valid password',
       'PW_NO_MATCH': 'Passwords do not match',

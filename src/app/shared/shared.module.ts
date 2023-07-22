@@ -19,6 +19,10 @@ import { ImpressumComponent } from './footer/impressum/impressum.component';
 import { DataProtectionComponent } from './footer/data-protection/data-protection.component';
 import {SubscriptionDestroyComponent} from '../core/subscription-destroy.component';
 import {SessionProvider} from '../database/providers/session.provider';
+import {AddressProvider} from '../database/providers/address.provider';
+import {CrisisAreaProvider} from '../database/providers/crisis-area.provider';
+import {DonationProvider} from '../database/providers/donation.provider';
+import {DonationTypeProvider} from '../database/providers/donation-type.provider';
 
 @NgModule({
   declarations: [
@@ -60,7 +64,7 @@ import {SessionProvider} from '../database/providers/session.provider';
     TranslationToggleComponent,
     CommonModule
   ],
-  providers: [SessionProvider]
+  providers: [SessionProvider, AddressProvider, CrisisAreaProvider, DonationProvider, DonationTypeProvider]
 
 })
 export class SharedModule {}

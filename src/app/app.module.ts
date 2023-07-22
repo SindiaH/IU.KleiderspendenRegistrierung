@@ -14,6 +14,8 @@ import {AuthModule} from './auth/auth.module';
 import {DatabaseModule} from './database/database.module';
 import {ToastrModule} from 'ngx-toastr';
 import {CookieModule} from 'ngx-cookie';
+import {DateAdapter} from '@angular/material/core';
+import {MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule} from '@angular/material-moment-adapter';
 
 @NgModule({
   declarations: [
@@ -32,9 +34,11 @@ import {CookieModule} from 'ngx-cookie';
     DonationModule,
     BrowserAnimationsModule,
     AuthModule,
-    DatabaseModule
+    DatabaseModule,
+    MatMomentDateModule
+
   ],
-  providers: [],
+  providers: [{provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

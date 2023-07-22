@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   registerUrl = RoutingConstants.AUTH.REGISTER;
 
-  email = new FormControl('', [Validators.required]);
+  email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, Validators.minLength(3)]);
   signInForm: FormGroup;
   hide = true;
@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
       }, (error: any) => {
         this.toastr.error(error.message, this.translate.instant('ERROR'));
       });
-    }else {
+    } else {
       this.toastr.error(this.translate.instant('PAGES.LOGIN.EMAIL_NOT_EMPTY'), this.translate.instant('ERROR'));
     }
   }

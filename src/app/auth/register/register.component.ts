@@ -5,6 +5,7 @@ import {RoutingConstants} from '../../core/constants/routing.constants';
 import {TranslateService} from '@ngx-translate/core';
 import {ToastrService} from 'ngx-toastr';
 import {SessionProvider} from '../../database/providers/session.provider';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -20,8 +21,11 @@ export class RegisterComponent implements OnInit {
   confirmPassword = new FormControl('', [Validators.pattern(StringConstants.passwordConfirmRegex)]);
   registerForm: FormGroup;
 
-  constructor(private translate: TranslateService, private readonly formBuilder: FormBuilder,
-              private readonly sessionProvider: SessionProvider, private toastr: ToastrService) {
+  constructor(private translate: TranslateService,
+              private readonly formBuilder: FormBuilder,
+              private readonly sessionProvider: SessionProvider,
+              private toastr: ToastrService,
+              private readonly router: Router) {
     this.registerForm = this.formBuilder.group({
       email: this.email,
       password: this.password,
@@ -80,8 +84,8 @@ export class RegisterComponent implements OnInit {
       this.sessionProvider.signupWPw(this.email.value ?? '', this.password.value ?? '').then((result: any) => {
         console.log(result);
         if(result.data) {
-          this.toastr.success(this.translate.instant('REGISTER.SUCCESS'), this.translate.instant('SUCCESS'));
-
+          this.toastr.success(this.translate.instant('AUTH.REGISTER.SUCCESS'), this.translate.instant('SUCCESS'));
+          this.router.navigate([RoutingConstants.AUTH.BASE + '/' + RoutingConstants.AUTH.LOGIN], {replaceUrl: true});
         }
       }).finally(() => {
         this.loading = false;
