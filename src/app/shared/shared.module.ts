@@ -18,6 +18,7 @@ import {FooterComponent} from './footer/footer.component';
 import { ImpressumComponent } from './footer/impressum/impressum.component';
 import { DataProtectionComponent } from './footer/data-protection/data-protection.component';
 import {SubscriptionDestroyComponent} from '../core/subscription-destroy.component';
+import {SessionProvider} from '../database/providers/session.provider';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import {SubscriptionDestroyComponent} from '../core/subscription-destroy.compone
     NavMenuComponent,
     TranslationToggleComponent,
     CommonModule
-  ]
+  ],
+  providers: [SessionProvider]
 
 })
 export class SharedModule {}

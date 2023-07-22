@@ -1,1 +1,10 @@
-<p>account works!</p>
+<div class="custom-container auth-container">
+  <div class="auth-login">
+    <h1 class="header">{{ 'AUTH.PROFILE.TITLE' | translate }}</h1>
+    <p class="description">{{ 'AUTH.PROFILE.DESCRIPTION' | translate }}</p>
+    <div class="user-info" *ngIf="session?.user">
+      <div>{{'AUTH.PROFILE.EMAIL' | translate}}: {{session?.user?.email}}</div>
+      <div>{{'AUTH.PROFILE.CREATION_DATE' | translate}}: {{session?.user?.created_at}}</div>
+    </div>
+  </div>
+</div>

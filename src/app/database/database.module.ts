@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {SessionProvider} from './providers/session.provider';
 
 @NgModule({
   declarations: [],
@@ -8,7 +7,7 @@ import {SessionProvider} from './providers/session.provider';
     CommonModule
   ],
   providers: [
-    SessionProvider
+
   ]
 })
 export class DatabaseModule {

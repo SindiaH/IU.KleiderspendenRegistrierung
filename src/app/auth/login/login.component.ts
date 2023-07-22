@@ -39,9 +39,12 @@ export class LoginComponent implements OnInit {
       const email = this.signInForm.value.email as string;
       const password = this.signInForm.value.password as string;
       const { error } = await this.sessionProvider.signInWPw(email, password);
-      if (error) {throw error;}
-      this.toastr.info(this.translate.instant('PAGES.LOGIN.SUCCESS'), this.translate.instant('SUCCESS'));
-      this.router.navigate(['/']);
+      if (error) {
+        this.toastr.error(error, this.translate.instant('ERROR.INFO'));
+      } else {
+        // this.toastr.info(this.translate.instant('LOGIN.SUCCESS'), this.translate.instant('SUCCESS'));
+        this.router.navigate(['/']);
+      }
     }catch (error) {
       if (error instanceof Error) {
         this.toastr.error(error.message, this.translate.instant('SUCCESS'));
@@ -72,7 +75,6 @@ export class LoginComponent implements OnInit {
 
   resetPasswordClicked() {
     const email = this.signInForm.value.email as string;
-    console.log(email);
     if(email){
       this.sessionProvider.sendResetPasswordLink(email, RoutingConstants.AUTH.PASSWORD_RESET).then(() => {
         this.toastr.info(this.translate.instant('PAGES.LOGIN.SUCCESS_PW_RESET'), this.translate.instant('SUCCESS'));

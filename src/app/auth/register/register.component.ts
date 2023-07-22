@@ -79,12 +79,16 @@ export class RegisterComponent implements OnInit {
       this.loading = true;
       this.sessionProvider.signupWPw(this.email.value ?? '', this.password.value ?? '').then((result: any) => {
         console.log(result);
+        if(result.data) {
+          this.toastr.success(this.translate.instant('REGISTER.SUCCESS'), this.translate.instant('SUCCESS'));
+
+        }
       }).finally(() => {
         this.loading = false;
       });
     } else if (this.password.value !== this.confirmPassword.value) {
-      this.confirmPassword.hasError(this.translate.instant('PAGES.REGISTER.PW_NO_MATCH'));
-      this.toastr.error(this.translate.instant('PAGES.REGISTER.PW_NO_MATCH'), this.translate.instant('ERROR'));
+      this.confirmPassword.hasError(this.translate.instant('ERROR.PW_NO_MATCH'));
+      this.toastr.error(this.translate.instant('ERROR.PW_NO_MATCH'), this.translate.instant('ERROR'));
     }
   }
 }

@@ -15,7 +15,7 @@
       </mat-form-field>
       <mat-form-field appearance="outline" floatLabel="auto">
         <mat-label >{{ 'AUTH.REGISTER.PASSWORD_CONFIRM' | translate }}</mat-label>
-        <input type="confirmPassword" formControlName="confirmPassword" matInput  required>
+        <input type="password" formControlName="confirmPassword" matInput  required>
         <mat-error *ngIf="confirmPassword.invalid">{{getErrorMessage("confirmPassword") | translate}}</mat-error>
       </mat-form-field>
       <div>

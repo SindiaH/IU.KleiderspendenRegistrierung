@@ -10,6 +10,7 @@ export const locale: LanguageInfo = {
     'WELCOME': 'Willkommen',
     'TITLE': 'Kleiderspende',
     'LOADING': 'Laden...',
+    'SUCCESS': 'Erfolgreich',
     'FOOTER': {
       'INFO': '©Helfende Hand Verein, created by Sindia Höller 2023'
     },
@@ -20,6 +21,7 @@ export const locale: LanguageInfo = {
       'TITLE': 'Spendenübersicht',
     },
     'ERROR': {
+      'INFO': 'Fehler',
       'NOT_EMPTY': 'Dieses Feld darf nicht leer sein.',
       'INVALID_EMAIL': 'Bitte geben Sie eine gültige Email-Adresse ein.',
       'INVALID_PASSWORD': 'Bitte geben Sie ein gültiges Passwort ein.',
@@ -43,12 +45,16 @@ export const locale: LanguageInfo = {
         'PASSWORD_CONFIRM': 'Passwort bestätigen',
         'BUTTON': 'Registrieren',
         'GO_TO_LOGIN_DESCRIPTION': 'Sie haben bereits ein Konto?',
+        'SUCCESS': 'Registrierung erfolgreich. Bitte bestätigen Sie Ihre Email-Adresse, indem Sie auf den Link in der Email klicken, die wir Ihnen gerade geschickt haben',
       },
       'LOGOUT': {
         'TITLE': 'Logout',
       },
       'PROFILE': {
         'TITLE': 'Profil',
+        'DESCRIPTION': 'Hier können Sie Ihre Userdaten einsehen.',
+        'EMAIL': 'Email',
+        'CREATION_DATE': 'Erstellungsdatum',
       },
     },
     'IMPRESSUM': 'Impressum',
