@@ -8,7 +8,7 @@ export const locale: LanguageInfo = {
   flag: '🇩🇪',
   data: {
     'WELCOME': 'Willkommen',
-    'TITLE': 'Kleiderspende',
+    'TITLE': 'Helfende Hand',
     'LOADING': 'Laden...',
     'SUCCESS': 'Erfolgreich',
     'FOOTER': {
@@ -126,6 +126,7 @@ export const locale: LanguageInfo = {
       "DIRECTION_DETAIL": "Diese Website wurde erstellt mit dem Ziel, humanitäre Hilfe und Solidarität zu fördern. Ihre Nutzung unterliegt den hier aufgeführten Bedingungen. Bitte lesen Sie diese sorgfältig durch.",
       "RESPONSIBLE": "Für den Inhalt verantwortlich: Helfende Hand",
       "IMAGE_RIGHTS": "Bildrechte und Lizenzen: ",
+      "IMAGE_DETAIL": "Die Bildrechte liegen bei Helfende Hand. Die Verwendung der Bilder ist nur mit ausdrücklicher Genehmigung von Helfende Hand gestattet.",
       "IMAGE_RIGHTS_DETAIL": "Die Bildrechte liegen bei Helfende Hand. Die Verwendung der Bilder ist nur mit ausdrücklicher Genehmigung von Helfende Hand gestattet.",
       "DISCLAIMER": "Haftungsausschluss: ",
       "DISCLAIMER_DETAIL": "Die Inhalte dieser Website wurden sorgfältig geprüft und nach bestem Wissen erstellt. Für die hier dargebotenen Informationen wird kein Anspruch auf Vollständigkeit, Aktualität, Qualität und Richtigkeit erhoben. Es kann keine Verantwortung für Schäden übernommen werden, die durch das Vertrauen auf die Inhalte dieser Website oder deren Gebrauch entstehen.",

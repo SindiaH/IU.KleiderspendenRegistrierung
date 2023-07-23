@@ -122,14 +122,3 @@ mat-sidenav-content.mat-drawer-content {
   font-size: 1.2em;
 }
 
-.main-background {
-  height: calc(100vh - 64px);
-  width: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  z-index: -1;
-}
-app-footer {
-  margin: 8px 0;
-}

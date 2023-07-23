@@ -7,7 +7,7 @@ export const locale: LanguageInfo = {
   flag: '🇺🇸',
   data: {
     'WELCOME': 'Welcome',
-    'TITLE': 'Clothing donation',
+    'TITLE': 'Helfende Hand',
     'LOADING': 'Loading...',
     'SUCCESS': 'Success',
     'FOOTER': {
