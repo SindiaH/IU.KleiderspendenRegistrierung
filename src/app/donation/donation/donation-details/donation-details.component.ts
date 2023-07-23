@@ -21,6 +21,7 @@ export class DonationDetailsComponent extends SubscriptionDestroyComponent {
   donation: DonationEntity | undefined;
   loadingDonationFromDatabase = false;
   deliveryTypes = DeliveryType;
+  currentlySelectedCrisisArea: CrisisAreaLocalizedEntity | undefined;
 
   constructor(private donationTypeProvider: DonationTypeProvider,
               private crisisAreaProvider: CrisisAreaProvider,
@@ -55,8 +56,9 @@ export class DonationDetailsComponent extends SubscriptionDestroyComponent {
 
   loadDonationAddionalInfos() {
     if(this.donation) {
+      this.currentlySelectedCrisisArea = this.crisisAreas.find(crisisArea => crisisArea.id === this.donation?.crisisAreaId);
       this.donation.donationTypeName = this.donationTypes.find(donationType => donationType.id === this.donation?.donationTypeId)?.name;
-      this.donation.crisisAreaName = this.crisisAreas.find(crisisArea => crisisArea.id === this.donation?.crisisAreaId)?.name;
+      this.donation.crisisAreaName = this.currentlySelectedCrisisArea?.name;
     }
   }
 

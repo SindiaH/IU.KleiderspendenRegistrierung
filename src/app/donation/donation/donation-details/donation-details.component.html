@@ -1,4 +1,5 @@
-<img src="assets/main-background.jpg" alt="bg" class="main-background">
+<img src="assets/main-background.jpg" alt="bg" class="main-background" *ngIf="!currentlySelectedCrisisArea || !currentlySelectedCrisisArea?.image">
+<img [src]="currentlySelectedCrisisArea.image" alt="bg" class="main-background" *ngIf="currentlySelectedCrisisArea && currentlySelectedCrisisArea.image">
 <div class="donation" *ngIf="donation || !donationProvider.loadingDonations.value">
   <h1>{{'DONATION.TITLE' | translate}}</h1>
   <hr>

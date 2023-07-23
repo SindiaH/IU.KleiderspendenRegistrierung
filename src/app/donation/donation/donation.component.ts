@@ -28,6 +28,7 @@ export class DonationComponent extends SubscriptionDestroyComponent implements O
    deliveryTypes = DeliveryType;
   loading = false;
   successfullySubmitted = false;
+  currentlySelectedCrisisArea: CrisisAreaLocalizedEntity | undefined;
 
   email = new FormControl('', [Validators.required, Validators.email]);
   donationTypeId = new FormControl('', [Validators.required]);
@@ -56,6 +57,10 @@ export class DonationComponent extends SubscriptionDestroyComponent implements O
     });
     this.setNewSubscription = this.crisisAreaProvider.crisisAreas.subscribe(crisisAreas => {
       this.crisisAreas = crisisAreas;
+      if(this.crisisAreas.length > 0) {
+        this.crisisAreaId.setValue(this.crisisAreas[0].id);
+        this.crisisAreaChanged();
+      }
     });
 
 
@@ -158,5 +163,9 @@ export class DonationComponent extends SubscriptionDestroyComponent implements O
     if(this.postal.hasError('invalidPostalCode')) {
       this.toastr.error(this.translate.instant('ERROR.NOT_MATCHING_ZIP'), this.translate.instant('ERROR.INVALID_ZIP'));
     }
+  }
+
+  crisisAreaChanged() {
+    this.currentlySelectedCrisisArea = this.crisisAreas.find(x => x.id === this.crisisAreaId.value);
   }
 }

@@ -123,9 +123,12 @@ mat-sidenav-content.mat-drawer-content {
 }
 
 .main-background {
-  min-height: calc(100vh - 64px);
+  height: calc(100vh - 64px);
   width: 100%;
   object-fit: cover;
   position: absolute;
   z-index: -1;
+}
+app-footer {
+  margin: 8px 0;
 }
