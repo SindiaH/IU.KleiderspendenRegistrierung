@@ -24,8 +24,8 @@ export class LoginMenuComponent extends SubscriptionDestroyComponent {
   }
 
   onLogoutClick() {
-    this.sessionService.signOut().then((result: any) => {
-      this.router.navigate([RoutingConstants.AUTH + '/' + RoutingConstants.AUTH.LOGIN]);
+    this.sessionService.signOut().then(() => {
+      this.router.navigate([RoutingConstants.AUTH.BASE + '/' + RoutingConstants.AUTH.LOGIN]);
     });
   }
 }

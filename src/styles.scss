@@ -127,6 +127,7 @@ mat-sidenav-content.mat-drawer-content {
   width: 100%;
   object-fit: cover;
   position: absolute;
+  top: 0;
   z-index: -1;
 }
 app-footer {

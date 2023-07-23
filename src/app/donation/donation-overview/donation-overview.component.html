@@ -4,62 +4,64 @@
   <h1>{{'DONATION.LIST.TITLE' | translate}}</h1>
   <hr>
   <div class="description">{{'DONATION.LIST.DESCRIPTION' | translate}}</div>
-  <div>
 
-    <div class="mat-elevation-z8">
-      <table class="mat-table" mat-table [dataSource]="sortedData"
-             matSort (matSortChange)="sortData($event)"
-              aria-label="Table for donations">
+  <div class="mat-elevation-z8">
+    <table class="mat-table" mat-table [dataSource]="sortedData"
+           matSort (matSortChange)="sortData($event)"
+           aria-label="Table for donations">
 
-        <ng-container matColumnDef="deliveryType">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="deliveryType"> deliveryType </th>
-          <td mat-cell *matCellDef="let row" data-label="delivery-type"> {{row.deliveryType | deliveryType | translate}} </td>
-        </ng-container>
+      <ng-container matColumnDef="deliveryType">
+        <th mat-header-cell *matHeaderCellDef
+            mat-sort-header="deliveryType"> {{ 'DONATION.PICKUP_TYPE' | translate }} </th>
+        <td mat-cell *matCellDef="let row"
+            [attr.data-label]="'DONATION.PICKUP_TYPE' | translate"> {{row.deliveryType | deliveryType | translate}} </td>
+      </ng-container>
 
-        <ng-container matColumnDef="email">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> email </th>
-          <td mat-cell *matCellDef="let row" data-label="email"> {{row.email}} </td>
-        </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'DONATION.EMAIL' | translate }} </th>
+        <td mat-cell *matCellDef="let row" [attr.data-label]="'DONATION.EMAIL' | translate"> {{row.email}} </td>
+      </ng-container>
 
-        <ng-container matColumnDef="createdAt">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> createdAt </th>
-          <td mat-cell *matCellDef="let row" data-label="created at"> {{row.createdAt | dateFormat}} </td>
-        </ng-container>
+      <ng-container matColumnDef="createdAt">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'DONATION.CREATED_AT' | translate }} </th>
+        <td mat-cell *matCellDef="let row" [attr.data-label]="'DONATION.CREATED_AT' | translate"> {{row.createdAt | dateFormat}} </td>
+      </ng-container>
 
-        <ng-container matColumnDef="crisisAreaId">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> crisisAreaId </th>
-          <td mat-cell *matCellDef="let row" data-label="crisis area"> {{row.crisisAreaId | crisisArea:crisisAreas}} </td>
-        </ng-container>
+      <ng-container matColumnDef="crisisAreaId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'DONATION.CRISIS_AREA' | translate }} </th>
+        <td mat-cell *matCellDef="let row"
+            [attr.data-label]="'DONATION.CRISIS_AREA' | translate"> {{row.crisisAreaId | crisisArea:crisisAreas}} </td>
+      </ng-container>
 
-        <ng-container matColumnDef="donationTypeId">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> donationTypeId </th>
-          <td mat-cell *matCellDef="let row" data-label="donation type"> {{row.donationTypeId | donationType:donationTypes}} </td>
-        </ng-container>
+      <ng-container matColumnDef="donationTypeId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'DONATION.DONATION_TYPE' | translate }} </th>
+        <td mat-cell *matCellDef="let row"
+            [attr.data-label]="'DONATION.DONATION_TYPE' | translate"> {{row.donationTypeId | donationType:donationTypes}} </td>
+      </ng-container>
 
-        <ng-container matColumnDef="pickupDate">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> pickupDate </th>
-          <td mat-cell *matCellDef="let row" data-label="pickup date"> {{row.pickupDate  | dateFormat}} </td>
-        </ng-container>
+      <ng-container matColumnDef="pickupDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'DONATION.DELIVERY_DATE' | translate }} </th>
+        <td mat-cell *matCellDef="let row" [attr.data-label]="'DONATION.DELIVERY_DATE' | translate"> {{row.pickupDate  | dateFormat}} </td>
+      </ng-container>
 
-        <ng-container matColumnDef="actions">
-          <th mat-header-cell *matHeaderCellDef>  </th>
-          <td mat-cell *matCellDef="let row" class="actions">
-            <button mat-raised-button color="accent" type="button" (click)="editDonation(row)">
-              <mat-icon>info</mat-icon>
-              <span>{{'DONATION.LIST.EDIT' | translate}}</span>
-            </button>
-          </td>
-        </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row" class="actions">
+          <button mat-raised-button color="accent" type="button" (click)="editDonation(row)">
+            <mat-icon>info</mat-icon>
+            <span>{{'DONATION.LIST.EDIT' | translate}}</span>
+          </button>
+        </td>
+      </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
 
-      <mat-paginator #paginator [length]="donations.length" [pageSize]="intialPageSize"
-                     [pageSizeOptions]="[5, 10, 25, 100]"
-                     (page)="changePanginator()"
-                     aria-label="Select page of users"></mat-paginator>
-    </div>
+    <mat-paginator #paginator [length]="donations.length" [pageSize]="intialPageSize"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   (page)="changePanginator()"
+                   aria-label="Select page of users"></mat-paginator>
   </div>
 </div>
 <div class="donation" *ngIf="donations.length <= 0 && !donationProvider.loadingDonations.value">
