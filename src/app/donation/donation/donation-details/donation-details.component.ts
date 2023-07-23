@@ -6,9 +6,10 @@ import {DonationProvider} from '../../../database/providers/donation.provider';
 import {CrisisAreaLocalizedEntity} from '../../../database/entities/crisisArea.localized.entity';
 import {DonationTypeLocalizedEntity} from '../../../database/entities/donationType.localized.entity';
 import {DonationEntity} from '../../../database/entities/donation.entity';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ResponseInterface} from '../../../database/interfaces/response.interface';
 import {DeliveryType} from '../../../core/enums/delivery-type.enum';
+import {RoutingConstants} from '../../../core/constants/routing.constants';
 
 @Component({
   selector: 'app-donation-details',
@@ -26,7 +27,8 @@ export class DonationDetailsComponent extends SubscriptionDestroyComponent {
   constructor(private donationTypeProvider: DonationTypeProvider,
               private crisisAreaProvider: CrisisAreaProvider,
               public donationProvider: DonationProvider,
-              private route: ActivatedRoute ) {
+              private route: ActivatedRoute,
+              private router: Router) {
     super();
     this.setNewSubscription = this.route.queryParams.subscribe(params => {
       if (params['id']) {
@@ -63,4 +65,8 @@ export class DonationDetailsComponent extends SubscriptionDestroyComponent {
   }
 
   protected readonly DeliveryType = DeliveryType;
+
+  backToDonationList() {
+    this.router.navigate([RoutingConstants.DONATION.BASE + '/' + RoutingConstants.DONATION.OVERVIEW]);
+  }
 }
