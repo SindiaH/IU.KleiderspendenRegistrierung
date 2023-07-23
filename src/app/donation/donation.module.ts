@@ -5,6 +5,10 @@ import {DonationRoutingModule} from './donation-routing.module';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { DonationOverviewComponent } from './donation-overview/donation-overview.component';
 import { DonationDetailsComponent } from './donation/donation-details/donation-details.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -15,7 +19,11 @@ import { DonationDetailsComponent } from './donation/donation-details/donation-d
   imports: [
     SharedModule,
     DonationRoutingModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule,
+    MatProgressSpinnerModule
   ],
   exports: []
 })

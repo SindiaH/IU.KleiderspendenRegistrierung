@@ -23,6 +23,10 @@ import {AddressProvider} from '../database/providers/address.provider';
 import {CrisisAreaProvider} from '../database/providers/crisis-area.provider';
 import {DonationProvider} from '../database/providers/donation.provider';
 import {DonationTypeProvider} from '../database/providers/donation-type.provider';
+import {dateFormatPipe} from '../core/pipe/date.pipe';
+import {deliveryTypePipe} from '../core/pipe/delivery-type.pipe';
+import {crisisAreaTypePipe} from '../core/pipe/crisis-area.pipe';
+import {donationTypePipe} from '../core/pipe/donation-type.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import {DonationTypeProvider} from '../database/providers/donation-type.provider
     FooterComponent,
     ImpressumComponent,
     DataProtectionComponent,
-    SubscriptionDestroyComponent
+    SubscriptionDestroyComponent,
+    dateFormatPipe,
+    deliveryTypePipe,
+    crisisAreaTypePipe,
+    donationTypePipe
   ],
   imports: [
     FormsModule,
@@ -62,7 +70,11 @@ import {DonationTypeProvider} from '../database/providers/donation-type.provider
     MatButtonModule,
     NavMenuComponent,
     TranslationToggleComponent,
-    CommonModule
+    CommonModule,
+    dateFormatPipe,
+    deliveryTypePipe,
+    crisisAreaTypePipe,
+    donationTypePipe
   ],
   providers: [SessionProvider, AddressProvider, CrisisAreaProvider, DonationProvider, DonationTypeProvider]
 

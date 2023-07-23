@@ -25,7 +25,7 @@ export class DonationComponent extends SubscriptionDestroyComponent implements O
   crisisAreas: CrisisAreaLocalizedEntity[] = [];
   donationTypes: DonationTypeLocalizedEntity[] = [];
   donationForm: FormGroup = new FormGroup({});
-  deliveryTypes = DeliveryType;
+   deliveryTypes = DeliveryType;
   loading = false;
   successfullySubmitted = false;
 

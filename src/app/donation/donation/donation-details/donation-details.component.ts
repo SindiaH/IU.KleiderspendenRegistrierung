@@ -24,7 +24,7 @@ export class DonationDetailsComponent extends SubscriptionDestroyComponent {
 
   constructor(private donationTypeProvider: DonationTypeProvider,
               private crisisAreaProvider: CrisisAreaProvider,
-              private donationProvider: DonationProvider,
+              public donationProvider: DonationProvider,
               private route: ActivatedRoute ) {
     super();
     this.setNewSubscription = this.route.queryParams.subscribe(params => {

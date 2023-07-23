@@ -15,20 +15,24 @@
   flex-direction: column;
   width: 60%;
   margin: 42px auto;
+
   h3 {
     font-size: 1.3rem;
     margin-top: 32px;
     margin-bottom: 0;
   }
+
   .group {
     display: flex;
   }
+
   .label {
     font-size: 1rem;
     margin-top: 8px;
     color: #888;
     width: 200px;
   }
+
   .info {
     font-size: 1.2rem;
     margin-top: 8px;
@@ -47,16 +51,68 @@
   flex-direction: column;
   width: 90%;
   margin: auto;
+
   .label {
     width: calc(200px - 5%);
   }
 }
 
 
-
 @media screen and (max-width: 961px) {
   .pickup-address, .donation, .donation-form {
     width: 100%;
   }
+  .donation {
+    padding: 16px;
+    width: calc(100vw - 32px);
+  }
+
+  .donation-form {
+    .group {
+      display: flex;
+      flex-direction: column;
+
+      .info {
+        padding-left: 8px;
+      }
+    }
+  }
+  thead {
+    display: none !important;
+  }
+  .mat-mdc-row {
+    display: flex;
+    flex-direction: column;
+    height: 100% !important;
+    margin: 8px 4px;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    .mat-mdc-cell {
+      border-bottom: 1px solid #ddd !important;
+      display: block;
+      font-size: 1em;
+      text-align: right;
+      font-weight: bold;
+      height: 30px;
+      margin-bottom: 4%;
+    }
+
+    .mat-column-actions {
+      height: 40px;
+      border-bottom: none !important;
+    }
+
+    td:before {
+      content: attr(data-label);
+      float: left;
+      text-transform: uppercase;
+      font-weight: normal;
+      font-size: .85em;
+    }
+  }
+
+
 }
 

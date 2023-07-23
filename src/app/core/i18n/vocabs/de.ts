@@ -36,6 +36,12 @@ export const locale: LanguageInfo = {
         'DESCRIPTION': 'Vielen Dank für Ihre Spende. Hier können Sie eine Übersicht der von Ihnen gespendeten Kleidungsstücke einsehen.',
         'TEMPORARY_INFO': 'Dies ist eine vorläufige Übersicht Ihrer Spende. Sie können Ihre Spende jederzeit einsehen, wenn Sie eingeloggt sind. Ihre Spenden werden mit Ihrer Email-Adresse verknüpft.',
         'NOT_FOUND': 'Spende nicht gefunden',
+      },
+      'LIST': {
+        'TITLE': 'Spendenübersicht',
+        'DESCRIPTION': 'Hier können Sie eine Übersicht Ihrer Spenden einsehen.',
+        'NOT_FOUND': 'Keine Spenden gefunden',
+        'EDIT': 'Aufrufen',
       }
     },
     'ADMIN': {

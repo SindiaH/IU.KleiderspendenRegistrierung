@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {DatabaseBaseProvider} from './base.provider';
 import {IDatabaseDonationService} from '../interfaces/donation.interface';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, map} from 'rxjs';
 import {AddressEntity} from '../entities/address.entity';
 import {SessionProvider} from './session.provider';
 import {ToastrService} from 'ngx-toastr';
@@ -24,6 +24,7 @@ export class DonationProvider extends SubscriptionDestroyComponent {
   factory: DatabaseFacory;
   session: Session | null = null;
   currentlySelectedDonation = new BehaviorSubject<DonationEntity | undefined>(undefined);
+  loadingDonations = new BehaviorSubject<boolean>(true);
 
   constructor(sessionProvider: SessionProvider,
               private readonly toasr: ToastrService,
@@ -42,10 +43,12 @@ export class DonationProvider extends SubscriptionDestroyComponent {
   }
 
   getList() {
+    this.loadingDonations.next(true);
     return this.donationService?.getList().then((response: ResponseInterface) => {
       if (isHttpStatusOk(response.status)) {
         this.donations.next(response.data);
       }
+      this.loadingDonations.next(false);
       return response.data;
     });
   }
@@ -120,7 +123,12 @@ export class DonationProvider extends SubscriptionDestroyComponent {
       return response;
     });
   }
+
   getById(id: string) {
-    return this.donationService?.getById(id);
+    this.loadingDonations.next(true);
+    return this.donationService?.getById(id).then((response: ResponseInterface) => {
+      this.loadingDonations.next(false);
+      return response;
+    });
   }
 }

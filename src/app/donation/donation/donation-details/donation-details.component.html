@@ -1,4 +1,5 @@
-<div class="donation" *ngIf="donation">
+<img src="assets/main-background.jpg" alt="bg" class="main-background">
+<div class="donation" *ngIf="donation || !donationProvider.loadingDonations.value">
   <h1>{{'DONATION.TITLE' | translate}}</h1>
   <hr>
   <div class="description">{{'DONATION.DETAIL.DESCRIPTION' | translate}}</div>
@@ -21,7 +22,7 @@
       <div class="label">{{'DONATION.DONATION_TYPE' | translate}}</div>
       <div class="info">{{donation.donationTypeName}}</div>
     </div>
-    <h3>{{'DONATION.PICKUP_ADDRESS' | translate}}</h3>
+    <h3 *ngIf="donation.deliveryType === deliveryTypes.PICKUP">{{'DONATION.PICKUP_ADDRESS' | translate}}</h3>
     <div class="address" *ngIf="donation.deliveryType === deliveryTypes.PICKUP">
       <div class="group">
         <div class="label">{{'DONATION.STREET' | translate}}</div>
@@ -42,6 +43,12 @@
     </div>
   </div>
 </div>
-<div class="donation" *ngIf="!donation">
+<div class="donation" *ngIf="!donation && !donationProvider.loadingDonations.value">
   <div class="warn">{{'DONATION.DETAIL.NOT_FOUND' | translate}}</div>
+</div>
+<div class="donation" *ngIf="donationProvider.loadingDonations.value">
+  <h1>{{'DONATION.TITLE' | translate}}</h1>
+  <hr>
+  <div class="description">{{'DONATION.DESCRIPTION' | translate}}</div>
+  <mat-spinner></mat-spinner>
 </div>

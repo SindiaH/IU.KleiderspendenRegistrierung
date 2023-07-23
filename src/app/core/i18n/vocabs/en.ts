@@ -35,6 +35,12 @@ export const locale: LanguageInfo = {
         'DESCRIPTION': 'Thank you for your donation. Here you can see an overview of the clothes you donated.',
         'TEMPORARY_INFO': 'This is a temporary overview of your donation. You can review your donation anytime, if you are logged in. Your donations will be connected to your email address.',
         'NOT_FOUND': 'Donation not found'
+      },
+      'LIST': {
+        'TITLE': 'Donation overview',
+        'DESCRIPTION': 'Here you can see an overview of your donations.',
+        'NOT_FOUND': 'No donations found',
+        'EDIT': 'Open',
       }
     },
     'ADMIN': {

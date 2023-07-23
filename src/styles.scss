@@ -121,3 +121,11 @@ mat-sidenav-content.mat-drawer-content {
   color: #f44336;
   font-size: 1.2em;
 }
+
+.main-background {
+  min-height: calc(100vh - 64px);
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+}

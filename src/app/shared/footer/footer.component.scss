@@ -11,3 +11,9 @@
   align-items: center;
   background: white;
 }
+
+@media (max-width: 767px) {
+  .footer-info {
+    flex-direction: column;
+  }
+}
