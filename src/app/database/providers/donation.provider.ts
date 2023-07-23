@@ -52,6 +52,7 @@ export class DonationProvider extends SubscriptionDestroyComponent {
       if(this.session?.user.id) {
         address.userId = this.session?.user.id;
       }
+      address.email = donation.email;
       return this.addressService?.add(address).then((response: ResponseInterface) => {
         if (isHttpStatusOk(response.status)) {
           donation.addressId = addrId;

@@ -28,11 +28,11 @@ export class AddressProvider extends DatabaseBaseProvider {
       return response.data;
     });
   }
-  add(task: AddressEntity) {
-    return this.addressService?.add(task).then((response: ResponseInterface) => {
-      if (isHttpStatusOk(response.status) && response.data.length > 0) {
+  add(address: AddressEntity) {
+    return this.addressService?.add(address).then((response: ResponseInterface) => {
+      if (isHttpStatusOk(response.status)) {
         const list = this.addresses.value;
-        list.push(response.data[0]);
+        list.push(address);
         this.addresses.next(list);
       } else {
         this.toasr.error('Error', 'Error adding addresses');
@@ -51,13 +51,13 @@ export class AddressProvider extends DatabaseBaseProvider {
     });
   }
 
-  edit(task: AddressEntity) {
-    return this.addressService?.edit(task).then((response: ResponseInterface) => {
+  edit(address: AddressEntity) {
+    return this.addressService?.edit(address).then((response: ResponseInterface) => {
       if (isHttpStatusOk(response.status)) {
         const list = this.addresses.value;
         list.map(item => {
-          if (item.id === task.id) {
-            return task;
+          if (item.id === address.id) {
+            return address;
           }
           return item;
         });

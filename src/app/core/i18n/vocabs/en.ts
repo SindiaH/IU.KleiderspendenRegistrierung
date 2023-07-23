@@ -26,7 +26,9 @@ export const locale: LanguageInfo = {
       'ZIP': 'ZIP',
       'CITY': 'City',
       'COUNTRY': 'Country',
-      'SUCCESSFULLY_SUBMITTED': 'Your donation has been successfully submitted. Thank you for your support!'
+      'SUCCESSFULLY_SUBMITTED': 'Your donation has been successfully submitted. Thank you for your support!',
+      'RESET_FORM': 'Reset form',
+      'RESET_FORM_INFO': 'Your donation has been successfully saved. Do you want to reset the form and enter a new donation?',
     },
     'ADMIN': {
       'TITLE': 'Donation overview',
@@ -34,9 +36,14 @@ export const locale: LanguageInfo = {
     'ERROR': {
       'INFO': 'Error',
       'NOT_EMPTY': 'Required field',
-      'INVALID_EMAIL': 'Please enter a valid email address',
-      'INVALID_PASSWORD': 'Please enter a valid password',
+      'INVALID_EMAIL': 'invalid email address',
+      'INVALID_PASSWORD': 'invalid password',
       'PW_NO_MATCH': 'Passwords do not match',
+      'MIN_LENGTH': 'Minimum length',
+      'MAX_LENGTH': 'Maximum length',
+      'INVALID_NUMBER': 'Invalid number',
+      'INVALID_ZIP': 'Invalid zip code',
+      'NOT_MATCHING_ZIP': 'Zip code is not close enough to our office address',
     },
     'AUTH': {
       'LOGIN': {

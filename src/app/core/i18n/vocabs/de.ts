@@ -27,6 +27,9 @@ export const locale: LanguageInfo = {
       'ZIP': 'PLZ',
       'CITY': 'Stadt',
       'COUNTRY': 'Land',
+      'SUCCESSFULLY_SUBMITTED': 'Ihre Spende wurde erfolgreich abgeschickt. Vielen Dank für Ihre Unterstützung!',
+      'RESET_FORM': 'Formular zurücksetzen',
+      'RESET_FORM_INFO': 'Ihre Spende wurde erfolgreich gespeichert. Wollen Sie das Formular zurücksetzen und eine neue Spende eintragen?',
     },
     'ADMIN': {
       'TITLE': 'Spendenübersicht',
@@ -34,9 +37,14 @@ export const locale: LanguageInfo = {
     'ERROR': {
       'INFO': 'Fehler',
       'NOT_EMPTY': 'Pflichtfeld',
-      'INVALID_EMAIL': 'Bitte geben Sie eine gültige Email-Adresse ein.',
-      'INVALID_PASSWORD': 'Bitte geben Sie ein gültiges Passwort ein.',
+      'INVALID_EMAIL': 'Ungültige Email-Adresse',
+      'INVALID_PASSWORD': 'Ungültiges Passwort',
       'PW_NO_MATCH': 'Passwörter stimmen nicht überein.',
+      'MIN_LENGTH': 'Mindestlänge nicht erreicht.',
+      'MAX_LENGTH': 'Maximallänge überschritten.',
+      'INVALID_NUMBER': 'Ungültige Zahl',
+      'INVALID_ZIP': 'Ungültige Postleitzahl',
+      'NOT_MATCHING_ZIP': 'Postleitzahl liegt nicht nahe genug an unserer Geschäftsstelle',
     },
     'AUTH': {
       'LOGIN': {

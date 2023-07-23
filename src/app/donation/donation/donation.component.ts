@@ -10,6 +10,9 @@ import {DonationEntity} from '../../database/entities/donation.entity';
 import {AddressEntity} from '../../database/entities/address.entity';
 import {Guid} from 'guid-typescript';
 import {DonationProvider} from '../../database/providers/donation.provider';
+import {postalCodeValidator} from '../../core/validators/postal-code.validator';
+import {ToastrService} from 'ngx-toastr';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-donation',
@@ -32,7 +35,8 @@ export class DonationComponent extends SubscriptionDestroyComponent implements O
 
   street = new FormControl('', [Validators.required]);
   houseNumber = new FormControl('', [Validators.required]);
-  postal = new FormControl('', [Validators.required]);
+  postal = new FormControl('', [Validators.required,
+    Validators.maxLength(4), Validators.minLength(4), postalCodeValidator(), Validators.pattern('^[0-9]*$')]);
   location = new FormControl('', [Validators.required]);
   country = new FormControl('Austria', [Validators.required]);
 
@@ -40,7 +44,9 @@ export class DonationComponent extends SubscriptionDestroyComponent implements O
   constructor(private donationTypeProvider: DonationTypeProvider,
               private crisisAreaProvider: CrisisAreaProvider,
               private donationProvider: DonationProvider,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private toastr: ToastrService,
+              private translate: TranslateService) {
     super();
     this.setNewSubscription = this.donationTypeProvider.donationTypes.subscribe(donationTypes => {
       this.donationTypes = donationTypes;
@@ -103,6 +109,18 @@ export class DonationComponent extends SubscriptionDestroyComponent implements O
         return this.email.hasError('email') ? 'ERROR.INVALID_EMAIL' : '';
       case 'required':
         return 'ERROR.NOT_EMPTY';
+      case 'zip':
+        if (this.postal.hasError('required')) {
+          return 'ERROR.NOT_EMPTY';
+        } else if(this.postal.hasError('invalidPostalCode')) {
+          return 'ERROR.INVALID_ZIP';
+        } else if(this.postal.hasError('minlength')) {
+          return 'ERROR.MIN_LENGTH';
+        } else if(this.postal.hasError('maxlength')) {
+          return 'ERROR.MAX_LENGTH';
+        }
+        return ''
+
       default:
         return '';
     }
@@ -112,7 +130,8 @@ export class DonationComponent extends SubscriptionDestroyComponent implements O
     if(this.deliveryType.value === DeliveryType.PICKUP) {
       this.street.setValidators([Validators.required]);
       this.houseNumber.setValidators([Validators.required]);
-      this.postal.setValidators([Validators.required]);
+      this.postal.setValidators([Validators.required,
+        Validators.minLength(4), Validators.maxLength(4), postalCodeValidator()]);
       this.location.setValidators([Validators.required]);
       this.country.setValidators([Validators.required]);
     } else {
@@ -131,5 +150,11 @@ export class DonationComponent extends SubscriptionDestroyComponent implements O
 
   ngOnInit(): void {
     this.email.setValue(this.donationProvider.session?.user?.email ?? '');
+  }
+
+  onNumberChange() {
+    if(this.postal.hasError('invalidPostalCode')) {
+      this.toastr.error(this.translate.instant('ERROR.NOT_MATCHING_ZIP'), this.translate.instant('ERROR.INVALID_ZIP'));
+    }
   }
 }

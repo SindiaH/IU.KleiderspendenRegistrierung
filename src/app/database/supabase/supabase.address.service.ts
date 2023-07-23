@@ -16,7 +16,7 @@ export class SupabaseAddressService extends CustomSupabaseClient implements IDat
 
   add(item: AddressEntity) {
     return this.supabase.from(this.entityName)
-      .upsert(item).eq('id', item.id).select();
+      .insert(item);
   }
 
   remove(id: string) {
