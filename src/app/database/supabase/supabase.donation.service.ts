@@ -30,7 +30,7 @@ export class SupabaseDonationService implements IDatabaseDonationService {
 
   getById(id: string) {
     return this.service.supabase.from(this.entityName)
-      .select(`id, address(*)`)
+      .select(`*, address(*)`)
       .eq('id', id)
       .single();
   }

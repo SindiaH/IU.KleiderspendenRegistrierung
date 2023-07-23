@@ -17,6 +17,7 @@ export const locale: LanguageInfo = {
     'DONATION': {
       'TITLE': 'Spende',
       'SUBMIT': 'Absenden',
+      'PICKUP_TYPE': 'Abholart',
       'PICKUP': 'Abholung',
       'ONSITE': 'Übergabe an der Geschäftsstelle',
       'PICKUP_ADDRESS': 'Abholadresse',
@@ -30,6 +31,12 @@ export const locale: LanguageInfo = {
       'SUCCESSFULLY_SUBMITTED': 'Ihre Spende wurde erfolgreich abgeschickt. Vielen Dank für Ihre Unterstützung!',
       'RESET_FORM': 'Formular zurücksetzen',
       'RESET_FORM_INFO': 'Ihre Spende wurde erfolgreich gespeichert. Wollen Sie das Formular zurücksetzen und eine neue Spende eintragen?',
+      'DETAIL': {
+        'TITLE': 'Spendendetails',
+        'DESCRIPTION': 'Vielen Dank für Ihre Spende. Hier können Sie eine Übersicht der von Ihnen gespendeten Kleidungsstücke einsehen.',
+        'TEMPORARY_INFO': 'Dies ist eine vorläufige Übersicht Ihrer Spende. Sie können Ihre Spende jederzeit einsehen, wenn Sie eingeloggt sind. Ihre Spenden werden mit Ihrer Email-Adresse verknüpft.',
+        'NOT_FOUND': 'Spende nicht gefunden',
+      }
     },
     'ADMIN': {
       'TITLE': 'Spendenübersicht',

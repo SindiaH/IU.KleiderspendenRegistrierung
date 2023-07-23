@@ -1,0 +1,62 @@
+.donation {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  margin: 16px auto;
+  padding: 32px;
+  //position: absolute;
+  //top: 0;
+  //right: 10%;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.donation-form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 42px auto;
+  h3 {
+    font-size: 1.3rem;
+    margin-top: 32px;
+    margin-bottom: 0;
+  }
+  .group {
+    display: flex;
+  }
+  .label {
+    font-size: 1rem;
+    margin-top: 8px;
+    color: #888;
+    width: 200px;
+  }
+  .info {
+    font-size: 1.2rem;
+    margin-top: 8px;
+  }
+}
+
+.pickup-address {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+  .label {
+    width: calc(200px - 5%);
+  }
+}
+
+
+
+@media screen and (max-width: 961px) {
+  .pickup-address, .donation, .donation-form {
+    width: 100%;
+  }
+}
+

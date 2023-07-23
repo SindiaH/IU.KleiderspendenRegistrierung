@@ -23,6 +23,7 @@ export class DonationProvider extends SubscriptionDestroyComponent {
   donations = new BehaviorSubject<DonationEntity[]>([]);
   factory: DatabaseFacory;
   session: Session | null = null;
+  currentlySelectedDonation = new BehaviorSubject<DonationEntity | undefined>(undefined);
 
   constructor(sessionProvider: SessionProvider,
               private readonly toasr: ToastrService,
@@ -69,14 +70,18 @@ export class DonationProvider extends SubscriptionDestroyComponent {
       return this.addFinally(donation);
     }
   }
-  private addFinally(donation: DonationEntity) {
+  private addFinally(donation: DonationEntity, address?: AddressEntity) {
     if(this.session?.user.id) {
       donation.userId = this.session?.user.id;
     }
     return this.donationService?.add(donation).then((response: ResponseInterface) => {
       if (isHttpStatusOk(response.status)) {
+        if(address) {
+          donation.address = address;
+        }
         const list = this.donations.value;
         list.push(donation);
+        this.currentlySelectedDonation.next(donation);
         this.donations.next(list);
         this.toasr.success(this.translate.instant('DONATION.SUCCESSFULLY_SUBMITTED'), this.translate.instant('SUCCESS'));
       } else {
@@ -84,6 +89,10 @@ export class DonationProvider extends SubscriptionDestroyComponent {
       }
       return response;
     });
+  }
+
+  selectDonation(donation: DonationEntity) {
+    this.currentlySelectedDonation.next(donation);
   }
 
   remove(id: string) {

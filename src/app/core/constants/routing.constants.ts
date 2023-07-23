@@ -4,6 +4,8 @@ export const RoutingConstants = {
   },
   DONATION: {
     BASE: 'donations',
+    DETAIL: 'detail',
+    OVERVIEW: 'overview',
   },
   IMPRESSUM: 'impressum',
   DataProtection: 'data-protection',

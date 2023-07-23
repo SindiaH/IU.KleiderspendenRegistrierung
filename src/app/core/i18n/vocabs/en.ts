@@ -17,6 +17,7 @@ export const locale: LanguageInfo = {
       'TITLE': 'Donation',
       'SUBMIT': 'Submit',
       'PICKUP': 'Pickup',
+      'PICKUP_TYPE': 'Delivery type',
       'ONSITE': 'Handover at the office',
       'PICKUP_ADDRESS': 'Pickup address',
       'DONATION_TYPE': 'Donation type',
@@ -29,6 +30,12 @@ export const locale: LanguageInfo = {
       'SUCCESSFULLY_SUBMITTED': 'Your donation has been successfully submitted. Thank you for your support!',
       'RESET_FORM': 'Reset form',
       'RESET_FORM_INFO': 'Your donation has been successfully saved. Do you want to reset the form and enter a new donation?',
+      'DETAIL': {
+        'TITLE': 'Donation details',
+        'DESCRIPTION': 'Thank you for your donation. Here you can see an overview of the clothes you donated.',
+        'TEMPORARY_INFO': 'This is a temporary overview of your donation. You can review your donation anytime, if you are logged in. Your donations will be connected to your email address.',
+        'NOT_FOUND': 'Donation not found'
+      }
     },
     'ADMIN': {
       'TITLE': 'Donation overview',

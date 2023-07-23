@@ -12,4 +12,6 @@ export class DonationEntity {
   deliveryType: DeliveryType = DeliveryType.PICKUP;
   userId?: string;
   address?: AddressEntity;
+  donationTypeName?: string;
+  crisisAreaName?: string;
 }

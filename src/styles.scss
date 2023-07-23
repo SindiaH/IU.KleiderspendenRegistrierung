@@ -12,7 +12,7 @@ $light-theme: mat.define-light-theme((
 // Apply the dark theme by default
 @include mat.core-theme($light-theme);
 @include mat.button-theme($light-theme);
-
+@import "assets/styles/donations";
 
 
 html, body { height: 100%; overflow-y: hidden; }
@@ -116,4 +116,8 @@ mat-sidenav-content.mat-drawer-content {
     }
   }
 
+}
+.warn {
+  color: #f44336;
+  font-size: 1.2em;
 }

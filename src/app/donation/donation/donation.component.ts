@@ -13,6 +13,8 @@ import {DonationProvider} from '../../database/providers/donation.provider';
 import {postalCodeValidator} from '../../core/validators/postal-code.validator';
 import {ToastrService} from 'ngx-toastr';
 import {TranslateService} from '@ngx-translate/core';
+import {Router} from '@angular/router';
+import {RoutingConstants} from '../../core/constants/routing.constants';
 
 @Component({
   selector: 'app-donation',
@@ -46,7 +48,8 @@ export class DonationComponent extends SubscriptionDestroyComponent implements O
               private donationProvider: DonationProvider,
               private formBuilder: FormBuilder,
               private toastr: ToastrService,
-              private translate: TranslateService) {
+              private translate: TranslateService,
+              private router: Router) {
     super();
     this.setNewSubscription = this.donationTypeProvider.donationTypes.subscribe(donationTypes => {
       this.donationTypes = donationTypes;
@@ -90,7 +93,8 @@ export class DonationComponent extends SubscriptionDestroyComponent implements O
       this.loading = true;
       this.donationProvider.add(donation, address).then(() => {
         this.loading = false;
-        this.successfullySubmitted = true;
+        this.donationProvider.currentlySelectedDonation.next(donation);
+        this.router.navigate([RoutingConstants.DONATION.BASE + '/' + RoutingConstants.DONATION.DETAIL]);
 
       }, () => {
         this.loading = false;

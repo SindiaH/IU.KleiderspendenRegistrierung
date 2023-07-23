@@ -1,0 +1,47 @@
+<div class="donation" *ngIf="donation">
+  <h1>{{'DONATION.TITLE' | translate}}</h1>
+  <hr>
+  <div class="description">{{'DONATION.DETAIL.DESCRIPTION' | translate}}</div>
+  <div class="temporary-info" *ngIf="!loadingDonationFromDatabase">{{'DONATION.DETAIL.TEMPORARY_INFO' | translate}}</div>
+  <div class="donation-form" *ngIf="donation">
+    <div class="group">
+      <div class="label">{{'DONATION.PICKUP_TYPE' | translate}}</div>
+      <div class="info" *ngIf="donation.deliveryType === deliveryTypes.PICKUP">{{'DONATION.PICKUP' | translate}}</div>
+      <div class="info" *ngIf="donation.deliveryType === deliveryTypes.ONSITE">{{'DONATION.ONSITE' | translate}}</div>
+    </div>
+    <div class="group">
+      <div class="label">{{'AUTH.LOGIN.EMAIL' | translate}}</div>
+      <div class="info">{{donation.email}}</div>
+    </div>
+    <div class="group">
+      <div class="label">{{'DONATION.CRISIS_AREA' | translate}}</div>
+      <div class="info">{{donation.crisisAreaName}}</div>
+    </div>
+    <div class="group">
+      <div class="label">{{'DONATION.DONATION_TYPE' | translate}}</div>
+      <div class="info">{{donation.donationTypeName}}</div>
+    </div>
+    <h3>{{'DONATION.PICKUP_ADDRESS' | translate}}</h3>
+    <div class="address" *ngIf="donation.deliveryType === deliveryTypes.PICKUP">
+      <div class="group">
+        <div class="label">{{'DONATION.STREET' | translate}}</div>
+        <div class="info">{{donation.address?.street}} {{donation.address?.houseNumber}}</div>
+      </div>
+      <div class="group">
+        <div class="label">{{'DONATION.ZIP' | translate}}</div>
+        <div class="info">{{donation.address?.postal}}</div>
+      </div>
+      <div class="group">
+        <div class="label">{{'DONATION.CITY' | translate}}</div>
+        <div class="info">{{donation.address?.location}}</div>
+      </div>
+      <div class="group">
+        <div class="label">{{'DONATION.COUNTRY' | translate}}</div>
+        <div class="info">{{donation.address?.country}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="donation" *ngIf="!donation">
+  <div class="warn">{{'DONATION.DETAIL.NOT_FOUND' | translate}}</div>
+</div>
