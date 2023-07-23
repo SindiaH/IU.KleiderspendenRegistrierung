@@ -52,7 +52,6 @@ export class DonationComponent extends SubscriptionDestroyComponent implements O
       this.donationTypes = donationTypes;
     });
     this.setNewSubscription = this.crisisAreaProvider.crisisAreas.subscribe(crisisAreas => {
-      console.log(crisisAreas);
       this.crisisAreas = crisisAreas;
     });
 
@@ -72,7 +71,6 @@ export class DonationComponent extends SubscriptionDestroyComponent implements O
   }
 
   onSubmit() {
-    console.log(this.donationForm);
     if (this.donationForm.valid) {
       let donation = new DonationEntity();
       donation.id = Guid.create().toString();

@@ -1,19 +1,18 @@
-import {CustomSupabaseClient} from './supabase.client';
 import {Injectable} from '@angular/core';
 import {IDatabaseCrisisAreaLocalizedService} from '../interfaces/crisisArea-localized.interface';
+import {SupabaseService} from '../../core/service/supabase.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SupabaseCrisisAreaService extends CustomSupabaseClient implements IDatabaseCrisisAreaLocalizedService {
+export class SupabaseCrisisAreaService implements IDatabaseCrisisAreaLocalizedService {
   entityName = 'crisisareaslocalized';
 
-  constructor() {
-    super();
+  constructor(private service: SupabaseService) {
   }
 
   getById(id: string, lang: string) {
-    return this.supabase.from(this.entityName)
+    return this.service.supabase.from(this.entityName)
       .select(`id`)
       .eq('id', id)
       .eq('lang', lang)
@@ -21,7 +20,7 @@ export class SupabaseCrisisAreaService extends CustomSupabaseClient implements I
   }
 
   getList(lang: string) {
-    let query = this.supabase.from(this.entityName)
+    let query = this.service.supabase.from(this.entityName)
       .select('*').eq('lang', lang);
     return query;
   }

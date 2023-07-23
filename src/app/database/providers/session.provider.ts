@@ -4,6 +4,7 @@ import {IDatabaseAuthService} from '../interfaces/database-auth-service.interfac
 import {CookieService} from 'ngx-cookie-service';
 import {Injectable} from '@angular/core';
 import {DatabaseFacory} from '../database.factory';
+import {SupabaseService} from '../../core/service/supabase.service';
 
 @Injectable()
 export class SessionProvider {
@@ -15,8 +16,8 @@ export class SessionProvider {
   public goToPwReset$ = this.goToPwReset.asObservable();
   private authProvider: IDatabaseAuthService;
 
-  constructor(private cookieService: CookieService) {
-    const factory = new DatabaseFacory();
+  constructor(private cookieService: CookieService, private service: SupabaseService) {
+    const factory = new DatabaseFacory(service);
     this.authProvider = factory.createDatabaseAuthService('supabase');
     this.authProvider.getSession().then(session => {
       this.loading.next(false);

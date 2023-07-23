@@ -16,6 +16,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {CookieModule} from 'ngx-cookie';
 import {DateAdapter} from '@angular/material/core';
 import {MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule} from '@angular/material-moment-adapter';
+import {SupabaseService} from './core/service/supabase.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,10 @@ import {MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule} from '@angular/mat
     MatMomentDateModule
 
   ],
-  providers: [{provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}}],
+  providers: [
+    {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}},
+    SupabaseService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

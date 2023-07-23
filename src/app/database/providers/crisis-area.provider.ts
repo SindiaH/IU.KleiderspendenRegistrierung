@@ -7,6 +7,7 @@ import {IDatabaseCrisisAreaLocalizedService} from '../interfaces/crisisArea-loca
 import {CrisisAreaLocalizedEntity} from '../entities/crisisArea.localized.entity';
 import {isHttpStatusOk} from '../../core/extensions/number.extension';
 import {TranslationService} from '../../core/i18n/translation.service';
+import {SupabaseService} from '../../core/service/supabase.service';
 
 @Injectable()
 export class CrisisAreaProvider extends DatabaseBaseProvider{
@@ -16,8 +17,9 @@ export class CrisisAreaProvider extends DatabaseBaseProvider{
 
   constructor(sessionProvider: SessionProvider,
               private readonly toasr: ToastrService,
-              private translationService: TranslationService) {
-    super(sessionProvider);
+              private translationService: TranslationService,
+              service: SupabaseService) {
+    super(sessionProvider, service);
     this.crisisAreaService = this.factory.createDatabaseCrisisAreaLocalizedService('supabase');
     this.translationService.selectedLanguage.subscribe((language) => {
       this.language = language;

@@ -14,18 +14,20 @@ import {SubscriptionDestroyComponent} from '../../core/subscription-destroy.comp
 import {DatabaseFacory} from '../database.factory';
 import {Session} from '@supabase/supabase-js';
 import {TranslateService} from '@ngx-translate/core';
+import {SupabaseService} from '../../core/service/supabase.service';
 
 @Injectable()
 export class DonationProvider extends SubscriptionDestroyComponent {
   private donationService: IDatabaseDonationService | null = null;
   private addressService: IDatabaseAddressService | null = null;
   donations = new BehaviorSubject<DonationEntity[]>([]);
-  factory = new DatabaseFacory();
+  factory: DatabaseFacory;
   session: Session | null = null;
 
   constructor(sessionProvider: SessionProvider,
               private readonly toasr: ToastrService,
-              private translate: TranslateService) {
+              private translate: TranslateService,
+              service: SupabaseService) {
     super();
     this.setNewSubscription = sessionProvider.session$.subscribe(session => {
       if(this.session?.user.id !== session?.user.id) {
@@ -33,6 +35,7 @@ export class DonationProvider extends SubscriptionDestroyComponent {
       }
       this.session = session;
     });
+    this.factory = new DatabaseFacory(service);
     this.donationService = this.factory.createDatabaseDonationService('supabase');
     this.addressService = this.factory.createDatabaseAddressService('supabase');
   }

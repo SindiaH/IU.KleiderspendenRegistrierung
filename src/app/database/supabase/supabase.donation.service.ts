@@ -1,44 +1,42 @@
-import {CustomSupabaseClient} from './supabase.client';
 import {Injectable} from '@angular/core';
 import {IDatabaseDonationService} from '../interfaces/donation.interface';
 import {DonationEntity} from '../entities/donation.entity';
+import {SupabaseService} from '../../core/service/supabase.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SupabaseDonationService extends CustomSupabaseClient implements IDatabaseDonationService {
+export class SupabaseDonationService implements IDatabaseDonationService {
   entityName = 'donation';
 
-  constructor() {
-    super();
+  constructor(private service: SupabaseService) {
   }
 
 
   add(item: DonationEntity) {
-    console.log('upsert', item);
-    return this.supabase.from(this.entityName)
+    return this.service.supabase.from(this.entityName)
       .insert(item);
   }
 
   remove(id: string) {
-    return this.supabase.from(this.entityName)
+    return this.service.supabase.from(this.entityName)
       .delete().eq('id', id).select();
   }
 
   edit(task: DonationEntity) {
-    return this.supabase.from(this.entityName).upsert(task)
+    return this.service.supabase.from(this.entityName).upsert(task)
       .eq('id', task.id);
   }
 
   getById(id: string) {
-    return this.supabase.from(this.entityName)
+    return this.service.supabase.from(this.entityName)
       .select(`id, address(*)`)
       .eq('id', id)
       .single();
   }
 
   getList() {
-    let query = this.supabase.from(this.entityName)
+    let query = this.service.supabase.from(this.entityName)
       .select('*, address(*)');
     return query;
   }

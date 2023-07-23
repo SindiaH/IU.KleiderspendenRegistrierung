@@ -8,26 +8,27 @@ import {IDatabaseDonationService} from './interfaces/donation.interface';
 import {SupabaseDonationService} from './supabase/supabase.donation.service';
 import {IDatabaseDonationTypeLocalizedService} from './interfaces/donation-type-localized.interface';
 import {SupabaseDonationTypeService} from './supabase/supabase.donation-type.service';
+import {SupabaseService} from '../core/service/supabase.service';
 
 export type DatabaseType = 'supabase' | 'test';
 
 
 export class DatabaseFacory {
-  constructor() {
+  constructor(private service: SupabaseService) {
   }
   public createDatabaseAuthService(type: DatabaseType): IDatabaseAuthService {
-    return new SupabaseAuthService();
+    return new SupabaseAuthService(this.service);
   }
   public createDatabaseAddressService(type: DatabaseType): IDatabaseAddressService {
-    return new SupabaseAddressService();
+    return new SupabaseAddressService(this.service);
   }
   public createDatabaseCrisisAreaLocalizedService(type: DatabaseType): IDatabaseCrisisAreaLocalizedService {
-    return new SupabaseCrisisAreaService();
+    return new SupabaseCrisisAreaService(this.service);
   }
   public createDatabaseDonationService(type: DatabaseType): IDatabaseDonationService {
-    return new SupabaseDonationService();
+    return new SupabaseDonationService(this.service);
   }
   public createDatabaseDonationTypeService(type: DatabaseType): IDatabaseDonationTypeLocalizedService {
-    return new SupabaseDonationTypeService();
+    return new SupabaseDonationTypeService(this.service);
   }
 }

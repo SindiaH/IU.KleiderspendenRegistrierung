@@ -7,6 +7,7 @@ import {BehaviorSubject} from 'rxjs';
 import {AddressEntity} from '../entities/address.entity';
 import {ResponseInterface} from '../interfaces/response.interface';
 import {isHttpStatusOk} from '../../core/extensions/number.extension';
+import {SupabaseService} from '../../core/service/supabase.service';
 
 @Injectable()
 export class AddressProvider extends DatabaseBaseProvider {
@@ -14,8 +15,9 @@ export class AddressProvider extends DatabaseBaseProvider {
   addresses = new BehaviorSubject<AddressEntity[]>([]);
 
   constructor(sessionProvider: SessionProvider,
-              private readonly toasr: ToastrService) {
-    super(sessionProvider);
+              private readonly toasr: ToastrService,
+              service: SupabaseService) {
+    super(sessionProvider, service);
     this.addressService = this.factory.createDatabaseAddressService('supabase');
     this.getList();
   }

@@ -7,8 +7,8 @@ import {
   Session, SignUpWithPasswordCredentials,
 } from '@supabase/supabase-js';
 import {IDatabaseAuthService} from '../interfaces/database-auth-service.interface';
-import {CustomSupabaseClient} from './supabase.client';
 import {of} from 'rxjs';
+import {SupabaseService} from '../../core/service/supabase.service';
 export interface Profile {
   id?: string;
   username: string;
@@ -19,15 +19,14 @@ export interface Profile {
 @Injectable({
   providedIn: 'root',
 })
-export class SupabaseAuthService extends CustomSupabaseClient implements IDatabaseAuthService {
+export class SupabaseAuthService implements IDatabaseAuthService {
   session: AuthSession | null = null;
 
-  constructor() {
-    super();
+  constructor(private service: SupabaseService) {
   }
 
   getSession() : Promise<Session | null>{
-    return this.supabase.auth.getSession().then(({data}) => {
+    return this.service.supabase.auth.getSession().then(({data}) => {
       this.session = data.session;
       return this.session;
     });
@@ -42,20 +41,20 @@ export class SupabaseAuthService extends CustomSupabaseClient implements IDataba
   // }
 
   authChanges(callback: (event: AuthChangeEvent, session: Session | null) => void) {
-    return this.supabase.auth.onAuthStateChange(callback);
+    return this.service.supabase.auth.onAuthStateChange(callback);
   }
 
   signInWLink(email: string) {
-    return this.supabase.auth.signInWithOtp({email});
+    return this.service.supabase.auth.signInWithOtp({email});
   }
 
   signInWPw(email: string, password: string){
-    return this.supabase.auth.signInWithPassword({email, password});
+    return this.service.supabase.auth.signInWithPassword({email, password});
   }
 
   signUpWPw(email: string, password: string) {
     const creds: SignUpWithPasswordCredentials = {email, password};
-    return this.supabase.auth.signUp(creds);
+    return this.service.supabase.auth.signUp(creds);
   }
 
   setPasswordWithSession(password: string, session: Session) {
@@ -77,21 +76,21 @@ export class SupabaseAuthService extends CustomSupabaseClient implements IDataba
   }
 
   signUpWithPw(email: string, password: string) {
-    return this.supabase.auth.signUp({email, password})
+    return this.service.supabase.auth.signUp({email, password})
   }
 
   private setPw(password: string){
-    return this.supabase.auth.getUser(this.session?.access_token).then((response)=> {
-      return this.supabase.auth.updateUser({email: response.data.user?.email, password, phone: response.data.user?.phone, data: response.data.user?.user_metadata});
+    return this.service.supabase.auth.getUser(this.session?.access_token).then((response)=> {
+      return this.service.supabase.auth.updateUser({email: response.data.user?.email, password, phone: response.data.user?.phone, data: response.data.user?.user_metadata});
     });
   }
 
   signOut() {
-    return this.supabase.auth.signOut();
+    return this.service.supabase.auth.signOut();
   }
 
   sendResetPasswordLink(email: string, redirectTo:string){
     console.log(redirectTo);
-    return this.supabase.auth.resetPasswordForEmail(email, {redirectTo: redirectTo});
+    return this.service.supabase.auth.resetPasswordForEmail(email, {redirectTo: redirectTo});
   }
 }

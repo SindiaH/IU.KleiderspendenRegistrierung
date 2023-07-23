@@ -5,7 +5,7 @@
   <form [formGroup]="donationForm" (ngSubmit)="onSubmit()" class="donation-form">
     <mat-form-field>
       <mat-label>{{'DONATION.PICKUP' | translate}}</mat-label>
-      <mat-select [formControl]="deliveryType" (selectionChange)="deliveryTypeChanged()" [disabled]="successfullySubmitted">
+      <mat-select [formControl]="deliveryType" (selectionChange)="deliveryTypeChanged()" [attr.disabled]="successfullySubmitted">
         <mat-option [value]="deliveryTypes.PICKUP">{{'DONATION.PICKUP' | translate}}</mat-option>
         <mat-option [value]="deliveryTypes.ONSITE">{{'DONATION.ONSITE' | translate}}</mat-option>
       </mat-select>
@@ -17,13 +17,13 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>{{'DONATION.CRISIS_AREA' | translate}}</mat-label>
-      <mat-select [formControl]="crisisAreaId" [disabled]="successfullySubmitted">
+      <mat-select [formControl]="crisisAreaId" [attr.disabled]="successfullySubmitted">
         <mat-option *ngFor="let crisisArea of crisisAreas" [value]="crisisArea.id">{{crisisArea.name}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field>
       <mat-label>{{'DONATION.DONATION_TYPE' | translate}}</mat-label>
-      <mat-select [formControl]="donationTypeId" [disabled]="successfullySubmitted">
+      <mat-select [formControl]="donationTypeId" [attr.disabled]="successfullySubmitted">
         <mat-option *ngFor="let donationType of donationTypes"
                     [value]="donationType.id">{{donationType.name}}</mat-option>
       </mat-select>
@@ -74,7 +74,7 @@
 
     <button *ngIf="!successfullySubmitted" [disabled]="loading || !this.donationForm.valid" mat-raised-button color="primary"
             type="submit">{{ loading ? ('LOADING' | translate) : ('DONATION.SUBMIT' | translate) }}</button>
-    <button *ngIf="successfullySubmitted" mat-raised-button color="primary" type="button"
+    <button *ngIf="successfullySubmitted" mat-raised-button color="accent" type="button"
             (click)="successfullySubmitted = false">{{'DONATION.RESET_FORM' | translate}}</button>
 
   </form>
