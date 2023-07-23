@@ -98,6 +98,7 @@ export class DonationComponent extends SubscriptionDestroyComponent implements O
       this.loading = true;
       this.donationProvider.add(donation, address).then(() => {
         this.loading = false;
+        donation.address = address;
         this.donationProvider.currentlySelectedDonation.next(donation);
         this.router.navigate([RoutingConstants.DONATION.BASE + '/' + RoutingConstants.DONATION.DETAIL]);
 
