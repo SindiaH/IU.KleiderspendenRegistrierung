@@ -41,7 +41,7 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Choose a date</mat-label>
+      <mat-label>{{'DONATION.CHOOSE_DATE' | translate}}</mat-label>
       <input matInput [matDatepicker]="datepicker" [formControl]="pickupDate" [readonly]="successfullySubmitted">
       <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
       <mat-datepicker #datepicker >
@@ -58,14 +58,14 @@
         <div class="placeholder"></div>
         <mat-form-field appearance="outline" floatLabel="auto" class="small" >
           <mat-label>{{ 'DONATION.NUMBER' | translate }}</mat-label>
-          <input type="number" [formControl]="houseNumber" matInput required [readonly]="successfullySubmitted">
+          <input type="text" [formControl]="houseNumber" matInput required [readonly]="successfullySubmitted">
           <mat-error *ngIf="houseNumber.invalid">{{getErrorMessage("required") | translate}}</mat-error>
         </mat-form-field>
       </div>
       <div class="city">
         <mat-form-field appearance="outline" floatLabel="auto" class="small" (change)="onNumberChange()">
           <mat-label>{{ 'DONATION.ZIP' | translate }}</mat-label>
-          <input type="text" [formControl]="postal" matInput required [readonly]="successfullySubmitted">
+          <input type="number" [formControl]="postal" matInput required [readonly]="successfullySubmitted">
           <mat-error *ngIf="postal.invalid">{{getErrorMessage("zip") | translate}}</mat-error>
         </mat-form-field>
         <div class="placeholder"></div>

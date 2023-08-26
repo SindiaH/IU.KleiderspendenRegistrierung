@@ -122,3 +122,6 @@ mat-sidenav-content.mat-drawer-content {
   font-size: 1.2em;
 }
 
+.mat-mdc-form-field-hint-wrapper, .mat-mdc-form-field-error-wrapper {
+  padding: 0 4px !important;
+}

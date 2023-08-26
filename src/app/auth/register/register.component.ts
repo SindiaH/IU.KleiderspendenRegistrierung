@@ -41,44 +41,33 @@ export class RegisterComponent implements OnInit {
     switch (type) {
       case 'email':
         if (this.email.hasError('required')) {
-          return 'PAGES.LOGIN.NOT_EMPTY';
+          return 'AUTH.LOGIN.NOT_EMPTY';
         }
-        return this.email.hasError('email') ? 'PAGES.LOGIN.INVALID_EMAIL' : '';
+        return this.email.hasError('email') ? 'AUTH.LOGIN.INVALID_EMAIL' : '';
       case 'password':
         if (this.password.hasError('required')) {
-          return 'PAGES.LOGIN.NOT_EMPTY';
+          return 'AUTH.LOGIN.NOT_EMPTY';
         }
         if (this.registerForm.errors?.['confirmPassword'] || this.password.value !== this.confirmPassword.value) {
-          return 'PAGES.REGISTER.PW_NO_MATCH';
+          return 'AUTH.REGISTER.PW_NO_MATCH';
         }
-        return this.password.hasError('password') ? 'PAGES.LOGIN.INVALID_PASSWORD' : '';
+        return this.password.hasError('password') ? 'AUTH.LOGIN.INVALID_PASSWORD' : '';
       case 'confirmPassword':
         if (this.password.hasError('required')) {
-          return 'PAGES.LOGIN.NOT_EMPTY';
+          return 'AUTH.LOGIN.NOT_EMPTY';
         }
         if (this.registerForm.errors?.['confirmPassword'] || this.password.value !== this.confirmPassword.value) {
-          return 'PAGES.REGISTER.PW_NO_MATCH';
+          return 'AUTH.REGISTER.PW_NO_MATCH';
         }
-        return this.password.hasError('confirmPassword') ? 'PAGES.LOGIN.INVALID_PASSWORD' : '';
+        return this.password.hasError('confirmPassword') ? 'AUTH.LOGIN.INVALID_PASSWORD' : '';
       default:
         return '';
     }
   }
 
-  validatePassworts(): void {
-    if (this.password.value !== this.confirmPassword.value) {
-      this.password.setValidators(Validators.minLength(20));
-      this.confirmPassword.setValidators(Validators.minLength(20));
-    } else {
-      this.password.setValidators(Validators.pattern(StringConstants.passwordConfirmRegex));
-      this.confirmPassword.setValidators(Validators.pattern(StringConstants.passwordConfirmRegex));
-    }
-    this.password.updateValueAndValidity();
-    this.confirmPassword.updateValueAndValidity();
-  }
 
   onSubmit() {
-    this.validatePassworts();
+    this.sessionProvider.validatePassworts(this.password, this.confirmPassword);
     if (this.registerForm.valid && this.password.value === this.confirmPassword.value) {
       this.loading = true;
       this.sessionProvider.signupWPw(this.email.value ?? '', this.password.value ?? '').then((result: any) => {
@@ -87,12 +76,13 @@ export class RegisterComponent implements OnInit {
           this.toastr.success(this.translate.instant('AUTH.REGISTER.SUCCESS'), this.translate.instant('SUCCESS'));
           this.router.navigate([RoutingConstants.AUTH.BASE + '/' + RoutingConstants.AUTH.LOGIN], {replaceUrl: true});
         }
-      }).finally(() => {
+      }, (error: any) => {
+        this.toastr.error(error.message, this.translate.instant('ERROR'));
         this.loading = false;
       });
     } else if (this.password.value !== this.confirmPassword.value) {
-      this.confirmPassword.hasError(this.translate.instant('ERROR.PW_NO_MATCH'));
-      this.toastr.error(this.translate.instant('ERROR.PW_NO_MATCH'), this.translate.instant('ERROR'));
+      this.confirmPassword.hasError(this.translate.instant('ERROR_MSG.PW_NO_MATCH'));
+      this.toastr.error(this.translate.instant('ERROR_MSG.PW_NO_MATCH'), this.translate.instant('ERROR'));
     }
   }
 }

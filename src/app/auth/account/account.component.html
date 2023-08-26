@@ -4,7 +4,24 @@
     <p class="description">{{ 'AUTH.PROFILE.DESCRIPTION' | translate }}</p>
     <div class="user-info" *ngIf="session?.user">
       <div>{{'AUTH.PROFILE.EMAIL' | translate}}: {{session?.user?.email}}</div>
-      <div>{{'AUTH.PROFILE.CREATION_DATE' | translate}}: {{session?.user?.created_at}}</div>
+      <div>{{'AUTH.PROFILE.CREATION_DATE' | translate}}: {{session?.user?.created_at ?? '' | dateFormat}}</div>
+    </div>
+    <div class="pw-change-form">
+      <form [formGroup]="pwChangeForm" (ngSubmit)="onSubmit()" class="register-form">
+        <mat-form-field appearance="outline" floatLabel="auto">
+          <mat-label >{{ 'AUTH.REGISTER.PASSWORD' | translate }}</mat-label>
+          <input type="password" formControlName="password" matInput  required (blur)="onBlur()">
+          <mat-error *ngIf="password.invalid">{{getErrorMessage("password") | translate}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" floatLabel="auto">
+          <mat-label >{{ 'AUTH.REGISTER.PASSWORD_CONFIRM' | translate }}</mat-label>
+          <input type="password" formControlName="confirmPassword" matInput  required (blur)="onBlur()">
+          <mat-error *ngIf="confirmPassword.invalid">{{getErrorMessage("confirmPassword") | translate}}</mat-error>
+        </mat-form-field>
+        <div>
+          <button [disabled]="loading || !this.pwChangeForm.valid" mat-raised-button color="primary" type="submit" >{{ loading ? ('LOADING' | translate) : ('AUTH.PW_RESET.BUTTON_CHANGE' | translate) }}</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

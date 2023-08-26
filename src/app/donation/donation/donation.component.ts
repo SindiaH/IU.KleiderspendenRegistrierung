@@ -112,20 +112,20 @@ export class DonationComponent extends SubscriptionDestroyComponent implements O
     switch (type) {
       case 'email':
         if (this.email.hasError('required')) {
-          return 'ERROR.NOT_EMPTY';
+          return 'ERROR_MSG.NOT_EMPTY';
         }
-        return this.email.hasError('email') ? 'ERROR.INVALID_EMAIL' : '';
+        return this.email.hasError('email') ? 'ERROR_MSG.INVALID_EMAIL' : '';
       case 'required':
-        return 'ERROR.NOT_EMPTY';
+        return 'ERROR_MSG.NOT_EMPTY';
       case 'zip':
         if (this.postal.hasError('required')) {
-          return 'ERROR.NOT_EMPTY';
+          return 'ERROR_MSG.NOT_EMPTY';
         } else if(this.postal.hasError('invalidPostalCode')) {
-          return 'ERROR.INVALID_ZIP';
+          return 'ERROR_MSG.INVALID_ZIP';
         } else if(this.postal.hasError('minlength')) {
-          return 'ERROR.MIN_LENGTH';
+          return 'ERROR_MSG.MIN_LENGTH';
         } else if(this.postal.hasError('maxlength')) {
-          return 'ERROR.MAX_LENGTH';
+          return 'ERROR_MSG.MAX_LENGTH';
         }
         return ''
 
@@ -162,7 +162,7 @@ export class DonationComponent extends SubscriptionDestroyComponent implements O
 
   onNumberChange() {
     if(this.postal.hasError('invalidPostalCode')) {
-      this.toastr.error(this.translate.instant('ERROR.NOT_MATCHING_ZIP'), this.translate.instant('ERROR.INVALID_ZIP'));
+      this.toastr.error(this.translate.instant('ERROR_MSG.NOT_MATCHING_ZIP'), this.translate.instant('ERROR_MSG.INVALID_ZIP'));
     }
   }
 

@@ -5,6 +5,8 @@ import {CookieService} from 'ngx-cookie-service';
 import {Injectable} from '@angular/core';
 import {DatabaseFacory} from '../database.factory';
 import {SupabaseService} from '../../core/service/supabase.service';
+import {FormControl, Validators} from '@angular/forms';
+import {StringConstants} from '../../core/constants/string.constants';
 
 @Injectable()
 export class SessionProvider {
@@ -64,5 +66,17 @@ export class SessionProvider {
 
   signupWPw(email: string, password: string) {
     return this.authProvider.signUpWithPw(email, password);
+  }
+
+  validatePassworts(password: FormControl, confirmPassword: FormControl): void {
+    if (password.value !== confirmPassword.value) {
+      password.setValidators([Validators.required, Validators.minLength(20)]);
+      confirmPassword.setValidators([Validators.required, Validators.minLength(20)]);
+    } else {
+      password.setValidators([Validators.required, Validators.pattern(StringConstants.passwordConfirmRegex)]);
+      confirmPassword.setValidators([Validators.required, Validators.pattern(StringConstants.passwordConfirmRegex)]);
+    }
+    password.updateValueAndValidity();
+    confirmPassword.updateValueAndValidity();
   }
 }

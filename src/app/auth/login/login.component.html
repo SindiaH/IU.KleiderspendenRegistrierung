@@ -15,7 +15,7 @@
         <mat-error *ngIf="password.invalid">{{getErrorMessage("password") | translate}}</mat-error>
       </mat-form-field>
       <div>
-        <a [matTooltip]="'AUTH.LOGIN.FORGOT_PASSWORD_TOOLTIP' | translate" class="pw-reset-link" (click)="resetPasswordClicked()" >{{'AUTH.LOGIN.FORGOT_PASSWORD' | translate}}</a>
+        <a [matTooltip]="'AUTH.LOGIN.FORGOT_PASSWORD_TOOLTIP' | translate" class="pw-reset-link" [routerLink]="'/' + pwResetLink" >{{'AUTH.LOGIN.FORGOT_PASSWORD' | translate}}</a>
         <button [disabled]="loading" mat-raised-button color="primary" type="submit" >{{ loading ? ('LOADING' | translate) : ('AUTH.LOGIN.BUTTON' | translate) }}</button>
       </div>
     </form>

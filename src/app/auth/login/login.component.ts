@@ -14,6 +14,7 @@ import {ToastrService} from 'ngx-toastr';
 export class LoginComponent implements OnInit {
   loading = false;
   registerUrl = RoutingConstants.AUTH.REGISTER;
+  pwResetLink = RoutingConstants.AUTH.PASSWORD_RESET;
 
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, Validators.minLength(3)]);
@@ -40,7 +41,7 @@ export class LoginComponent implements OnInit {
       const password = this.signInForm.value.password as string;
       const { error } = await this.sessionProvider.signInWPw(email, password);
       if (error) {
-        this.toastr.error(error, this.translate.instant('ERROR.INFO'));
+        this.toastr.error(error, this.translate.instant('ERROR_MSG.INFO'));
       } else {
         // this.toastr.info(this.translate.instant('LOGIN.SUCCESS'), this.translate.instant('SUCCESS'));
         this.router.navigate(['/']);
@@ -60,30 +61,16 @@ export class LoginComponent implements OnInit {
     switch (type) {
       case 'email':
         if (this.email.hasError('required')) {
-          return 'ERROR.NOT_EMPTY';
+          return 'ERROR_MSG.NOT_EMPTY';
         }
-        return this.email.hasError('email') ? 'ERROR.INVALID_EMAIL' : '';
+        return this.email.hasError('email') ? 'ERROR_MSG.INVALID_EMAIL' : '';
       case 'password':
         if (this.password.hasError('required')) {
-          return 'ERROR.NOT_EMPTY';
+          return 'ERROR_MSG.NOT_EMPTY';
         }
-        return this.password.hasError('password') ? 'ERROR.INVALID_PASSWORD' : '';
+        return this.password.hasError('password') ? 'ERROR_MSG.INVALID_PASSWORD' : '';
       default:
         return '';
     }
   }
-
-  resetPasswordClicked() {
-    const email = this.signInForm.value.email as string;
-    if(email){
-      this.sessionProvider.sendResetPasswordLink(email, RoutingConstants.AUTH.PASSWORD_RESET).then(() => {
-        this.toastr.info(this.translate.instant('PAGES.LOGIN.SUCCESS_PW_RESET'), this.translate.instant('SUCCESS'));
-      }, (error: any) => {
-        this.toastr.error(error.message, this.translate.instant('ERROR'));
-      });
-    } else {
-      this.toastr.error(this.translate.instant('PAGES.LOGIN.EMAIL_NOT_EMPTY'), this.translate.instant('ERROR'));
-    }
-  }
-
 }

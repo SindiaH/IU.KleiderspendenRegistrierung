@@ -10,6 +10,7 @@ export const locale: LanguageInfo = {
     'TITLE': 'Helfende Hand',
     'LOADING': 'Loading...',
     'SUCCESS': 'Success',
+    'ERROR': 'Error',
     'FOOTER': {
       'INFO': '©Helfende Hand Verein, created by Sindia Höller 2023'
     },
@@ -21,6 +22,7 @@ export const locale: LanguageInfo = {
       'ONSITE': 'Handover at the office',
       'PICKUP_ADDRESS': 'Pickup address',
       'DONATION_TYPE': 'Donation type',
+      'CHOOSE_DATE': 'Choose date',
       'CRISIS_AREA': 'Crisis area',
       'STREET': 'Street',
       'NUMBER': 'Street nr.',
@@ -49,7 +51,7 @@ export const locale: LanguageInfo = {
     'ADMIN': {
       'TITLE': 'Donation overview',
     },
-    'ERROR': {
+    'ERROR_MSG': {
       'INFO': 'Error',
       'NOT_EMPTY': 'Required field',
       'INVALID_EMAIL': 'invalid email address',
@@ -58,7 +60,7 @@ export const locale: LanguageInfo = {
       'MIN_LENGTH': 'Minimum length',
       'MAX_LENGTH': 'Maximum length',
       'INVALID_NUMBER': 'Invalid number',
-      'INVALID_ZIP': 'Invalid zip code',
+      'INVALID_ZIP': 'Invalid zip',
       'NOT_MATCHING_ZIP': 'Zip code is not close enough to our office address',
     },
     'AUTH': {
@@ -70,6 +72,7 @@ export const locale: LanguageInfo = {
         'EMAIL': 'Email',
         'PASSWORD': 'Password',
         'BUTTON': 'Login',
+        'NOT_EMPTY': 'cannot be empty',
       },
       'REGISTER': {
         'TITLE': 'Register',
@@ -80,6 +83,7 @@ export const locale: LanguageInfo = {
         'BUTTON': 'Register',
         'GO_TO_LOGIN_DESCRIPTION': 'You already have an account?',
         'SUCCESS': 'Registration successful. Please confirm your email address by clicking on the link in the email, we just sent to you.',
+        'PW_NO_MATCH': 'Passwords do not match',
       },
       'LOGOUT': {
         'TITLE': 'Logout',
@@ -90,6 +94,16 @@ export const locale: LanguageInfo = {
         'EMAIL': 'Email',
         'CREATION_DATE': 'Creation date',
       },
+      'PW_RESET': {
+        'TITLE': 'Reset password',
+        'DESCRIPTION': 'Enter your email address and we will send you login link. As soon as you are logged in again, you can change your password in your profile',
+        'EMAIL': 'Email',
+        'BUTTON': 'Reset password',
+        'BUTTON_CHANGE': 'Change password',
+        'SUCCESS_PW_RESET': 'We have sent you an email with a link to login automatically. Please check your inbox and change your password afterwards in your profile.',
+        'SUCCESS_PW_CHANGE': 'Your password has been successfully changed.',
+        'EMAIL_NOT_EMPTY': 'Please enter your email address.',
+      }
     },
     'IMPRESSUM': 'Impressum',
     'DATA_PROTECTION': 'Data protection',

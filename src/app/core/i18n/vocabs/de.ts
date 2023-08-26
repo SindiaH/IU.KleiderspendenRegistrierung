@@ -11,6 +11,7 @@ export const locale: LanguageInfo = {
     'TITLE': 'Helfende Hand',
     'LOADING': 'Laden...',
     'SUCCESS': 'Erfolgreich',
+    'ERROR': 'Fehler',
     'FOOTER': {
       'INFO': '©Helfende Hand Verein, created by Sindia Höller 2023'
     },
@@ -22,12 +23,13 @@ export const locale: LanguageInfo = {
       'ONSITE': 'Übergabe an der Geschäftsstelle',
       'PICKUP_ADDRESS': 'Abholadresse',
       'DONATION_TYPE': 'Spendenart',
+      'CHOOSE_DATE': 'Datum auswählen',
       'CRISIS_AREA': 'Krisengebiet',
       'STREET': 'Straße',
       'NUMBER': 'Straßennummer',
       'EMAIL': 'Email',
       'CREATED_AT': 'Erstellt am',
-      'DELIVERY_DATE': 'Lieferdatum',
+      'DELIVERY_DATE': 'Abgabedatum',
       'ZIP': 'PLZ',
       'CITY': 'Stadt',
       'COUNTRY': 'Land',
@@ -44,13 +46,13 @@ export const locale: LanguageInfo = {
         'TITLE': 'Spendenübersicht',
         'DESCRIPTION': 'Hier können Sie eine Übersicht Ihrer Spenden einsehen.',
         'NOT_FOUND': 'Keine Spenden gefunden',
-        'EDIT': 'Aufrufen',
+        'EDIT': 'Details',
       }
     },
     'ADMIN': {
       'TITLE': 'Spendenübersicht',
     },
-    'ERROR': {
+    'ERROR_MSG': {
       'INFO': 'Fehler',
       'NOT_EMPTY': 'Pflichtfeld',
       'INVALID_EMAIL': 'Ungültige Email-Adresse',
@@ -59,7 +61,7 @@ export const locale: LanguageInfo = {
       'MIN_LENGTH': 'Mindestlänge nicht erreicht.',
       'MAX_LENGTH': 'Maximallänge überschritten.',
       'INVALID_NUMBER': 'Ungültige Zahl',
-      'INVALID_ZIP': 'Ungültige Postleitzahl',
+      'INVALID_ZIP': 'Ungültige PLZ',
       'NOT_MATCHING_ZIP': 'Postleitzahl liegt nicht nahe genug an unserer Geschäftsstelle',
     },
     'AUTH': {
@@ -71,6 +73,7 @@ export const locale: LanguageInfo = {
         'EMAIL': 'Email',
         'PASSWORD': 'Passwort',
         'BUTTON': 'Login',
+        'NOT_EMPTY': 'Das Feld darf nicht leer sein.',
       },
       'REGISTER': {
         'TITLE': 'Registrieren',
@@ -81,6 +84,7 @@ export const locale: LanguageInfo = {
         'BUTTON': 'Registrieren',
         'GO_TO_LOGIN_DESCRIPTION': 'Sie haben bereits ein Konto?',
         'SUCCESS': 'Registrierung erfolgreich. Bitte bestätigen Sie Ihre Email-Adresse, indem Sie auf den Link in der Email klicken, die wir Ihnen gerade geschickt haben',
+        'PW_NO_MATCH': 'Passwörter stimmen nicht überein.',
       },
       'LOGOUT': {
         'TITLE': 'Logout',
@@ -91,6 +95,16 @@ export const locale: LanguageInfo = {
         'EMAIL': 'Email',
         'CREATION_DATE': 'Erstellungsdatum',
       },
+      'PW_RESET': {
+        'TITLE': 'Passwort zurücksetzen',
+        'DESCRIPTION': 'Geben Sie Ihre Email-Adresse ein, um einen Login-Link zu erhalten. Sobald Sie diesen erhalten haben, werden Sie automatisch eingeloggt und können Ihr Passwort auf Ihrer Profil-Seite ändern.',
+        'EMAIL': 'Email',
+        'BUTTON': 'Passwort zurücksetzen',
+        'BUTTON_CHANGE': 'Passwort ändern',
+        'SUCCESS_PW_RESET': 'Wir haben Ihnen eine Email gesendet, mit der Sie sich direkt ohne Passwort einloggen können. Bitte ändern Sie ihr Kennwort auf ihrer Profil-Seite.',
+        'SUCCESS_PW_CHANGE': 'Ihr Passwort wurde erfolgreich geändert.',
+        'EMAIL_NOT_EMPTY': 'Bitte geben Sie Ihre Email-Adresse ein.',
+      }
     },
     'IMPRESSUM': 'Impressum',
     'DATA_PROTECTION': 'Datenschutz',
