@@ -42,11 +42,13 @@ export class LoginComponent implements OnInit {
       const { error } = await this.sessionProvider.signInWPw(email, password);
       if (error) {
         this.toastr.error(error, this.translate.instant('ERROR_MSG.INFO'));
+        this.loading = false;
       } else {
         // this.toastr.info(this.translate.instant('LOGIN.SUCCESS'), this.translate.instant('SUCCESS'));
         this.router.navigate(['/']);
       }
-    }catch (error) {
+    } catch (error) {
+      this.loading = false;
       if (error instanceof Error) {
         this.toastr.error(error.message, this.translate.instant('SUCCESS'));
       }

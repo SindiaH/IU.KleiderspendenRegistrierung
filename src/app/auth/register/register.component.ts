@@ -72,7 +72,11 @@ export class RegisterComponent implements OnInit {
       this.loading = true;
       this.sessionProvider.signupWPw(this.email.value ?? '', this.password.value ?? '').then((result: any) => {
         console.log(result);
-        if(result.data) {
+        if(result.error) {
+          this.toastr.error(result.error.message, this.translate.instant('ERROR'));
+          this.loading = false;
+        }
+        else if(result.data) {
           this.toastr.success(this.translate.instant('AUTH.REGISTER.SUCCESS'), this.translate.instant('SUCCESS'));
           this.router.navigate([RoutingConstants.AUTH.BASE + '/' + RoutingConstants.AUTH.LOGIN], {replaceUrl: true});
         }

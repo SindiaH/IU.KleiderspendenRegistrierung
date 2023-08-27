@@ -49,8 +49,10 @@ export class AccountComponent extends SubscriptionDestroyComponent {
           this.toastr.success(this.translate.instant('AUTH.PW_RESET.SUCCESS_PW_CHANGE'), this.translate.instant('SUCCESS'));
         } else if(result.error.message) {
           this.toastr.error(result.error.message, this.translate.instant('ERROR'));
+          this.loading = false;
         } else {
           this.toastr.error(this.translate.instant('ERROR_MSG.UNKNOWN'), this.translate.instant('ERROR'));
+          this.loading = false;
         }
         this.loading = false;
       }, (error: any) => {
