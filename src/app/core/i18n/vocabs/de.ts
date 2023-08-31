@@ -18,7 +18,7 @@ export const locale: LanguageInfo = {
     'DONATION': {
       'TITLE': 'Spende',
       'SUBMIT': 'Absenden',
-      'PICKUP_TYPE': 'Abholart',
+      'PICKUP_TYPE': 'Abgabeart',
       'PICKUP': 'Abholung',
       'ONSITE': 'Übergabe an der Geschäftsstelle',
       'PICKUP_ADDRESS': 'Abholadresse',

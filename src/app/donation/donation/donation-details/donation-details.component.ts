@@ -20,6 +20,7 @@ export class DonationDetailsComponent extends SubscriptionDestroyComponent {
   crisisAreas: CrisisAreaLocalizedEntity[] = [];
   donationTypes: DonationTypeLocalizedEntity[] = [];
   donation: DonationEntity | undefined;
+  loading = true;
   loadingDonationFromDatabase = false;
   deliveryTypes = DeliveryType;
   currentlySelectedCrisisArea: CrisisAreaLocalizedEntity | undefined;
@@ -53,6 +54,10 @@ export class DonationDetailsComponent extends SubscriptionDestroyComponent {
         this.loadDonationAddionalInfos();
 
       }
+    });
+    this.setNewSubscription = this.donationProvider.loadingDonations$.subscribe(loading => {
+      this.loading = loading;
+      console.log(this.loading);
     });
   }
 

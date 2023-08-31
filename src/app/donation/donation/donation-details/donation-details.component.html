@@ -1,6 +1,6 @@
 <img src="assets/main-background.jpg" alt="bg" class="main-background" *ngIf="!currentlySelectedCrisisArea || !currentlySelectedCrisisArea?.image">
 <img [src]="currentlySelectedCrisisArea.image" alt="bg" class="main-background" *ngIf="currentlySelectedCrisisArea && currentlySelectedCrisisArea.image">
-<div class="donation" *ngIf="donation || !donationProvider.loadingDonations.value">
+<div class="donation" *ngIf="donation || !loading">
   <div class="donation-header">
     <h1>{{'DONATION.TITLE' | translate}}</h1>
     <button class="back" mat-icon-button (click)="backToDonationList()">
@@ -49,12 +49,13 @@
     </div>
   </div>
 </div>
-<div class="donation" *ngIf="!donation && !donationProvider.loadingDonations.value">
+<div class="donation" *ngIf="!donation && !loading">
   <div class="warn">{{'DONATION.DETAIL.NOT_FOUND' | translate}}</div>
 </div>
-<div class="donation" *ngIf="donationProvider.loadingDonations.value">
+<div class="donation" *ngIf="loading">
   <h1>{{'DONATION.TITLE' | translate}}</h1>
   <hr>
   <div class="description">{{'DONATION.DETAIL.DESCRIPTION' | translate}}</div>
   <mat-spinner></mat-spinner>
 </div>
+

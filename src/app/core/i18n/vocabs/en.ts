@@ -18,7 +18,7 @@ export const locale: LanguageInfo = {
       'TITLE': 'Donation',
       'SUBMIT': 'Submit',
       'PICKUP': 'Pickup',
-      'PICKUP_TYPE': 'Delivery type',
+      'PICKUP_TYPE': 'Pickup type',
       'ONSITE': 'Handover at the office',
       'PICKUP_ADDRESS': 'Pickup address',
       'DONATION_TYPE': 'Donation type',

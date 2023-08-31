@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
         // this.toastr.info(this.translate.instant('LOGIN.SUCCESS'), this.translate.instant('SUCCESS'));
         this.router.navigate(['/']);
       }
+      
     } catch (error) {
       this.loading = false;
       if (error instanceof Error) {

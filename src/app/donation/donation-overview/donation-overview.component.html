@@ -1,6 +1,6 @@
 <img src="assets/main-background.jpg" alt="bg" class="main-background">
 
-<div class="donation" *ngIf="donations.length > 0 && !donationProvider.loadingDonations.value">
+<div class="donation" *ngIf="donations.length > 0 && !loading">
   <h1>{{'DONATION.LIST.TITLE' | translate}}</h1>
   <hr>
   <div class="description">{{'DONATION.LIST.DESCRIPTION' | translate}}</div>
@@ -64,10 +64,10 @@
                    aria-label="Select page of users"></mat-paginator>
   </div>
 </div>
-<div class="donation" *ngIf="donations.length <= 0 && !donationProvider.loadingDonations.value">
+<div class="donation" *ngIf="donations.length <= 0 && !loading">
   <div class="warn">{{'DONATION.LIST.NOT_FOUND' | translate}}</div>
 </div>
-<div class="donation" *ngIf="donationProvider.loadingDonations.value">
+<div class="donation" *ngIf="loading">
   <h1>{{'DONATION.LIST.TITLE' | translate}}</h1>
   <hr>
   <div class="description">{{'DONATION.LIST.DESCRIPTION' | translate}}</div>

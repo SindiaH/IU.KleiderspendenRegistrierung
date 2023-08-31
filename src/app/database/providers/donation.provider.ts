@@ -24,7 +24,8 @@ export class DonationProvider extends SubscriptionDestroyComponent {
   factory: DatabaseFacory;
   session: Session | null = null;
   currentlySelectedDonation = new BehaviorSubject<DonationEntity | undefined>(undefined);
-  loadingDonations = new BehaviorSubject<boolean>(true);
+  private loadingDonations = new BehaviorSubject<boolean>(false);
+  loadingDonations$ = this.loadingDonations.asObservable();
 
   constructor(sessionProvider: SessionProvider,
               private readonly toasr: ToastrService,

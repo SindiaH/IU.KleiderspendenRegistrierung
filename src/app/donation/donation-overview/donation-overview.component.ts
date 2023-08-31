@@ -25,6 +25,7 @@ export class DonationOverviewComponent extends SubscriptionDestroyComponent {
   intialPageSize = 5;
   currentSort: Sort = {active: 'createdAt', direction: 'asc'};
   displayedColumns: string[] = ['deliveryType', 'email', 'createdAt', 'crisisAreaId', 'donationTypeId', 'pickupDate', 'actions'];
+  loading = true;
 
   constructor(public donationProvider: DonationProvider,
               private crisisAreaProvider: CrisisAreaProvider,
@@ -40,6 +41,9 @@ export class DonationOverviewComponent extends SubscriptionDestroyComponent {
     });
     this.setNewSubscription = this.donationTypeProvider.donationTypes.subscribe(donationTypes => {
       this.donationTypes = donationTypes;
+    });
+    this.setNewSubscription = this.donationProvider.loadingDonations$.subscribe(loading => {
+      this.loading = loading;
     });
   }
 

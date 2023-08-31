@@ -13,8 +13,7 @@ const routes: Routes = [
   },
   {
     path: RoutingConstants.DONATION.DETAIL,
-    component: DonationDetailsComponent,
-    canActivate: [AutoLoginRoutesGuard]
+    component: DonationDetailsComponent
   },
   {
     path: RoutingConstants.DONATION.OVERVIEW,
